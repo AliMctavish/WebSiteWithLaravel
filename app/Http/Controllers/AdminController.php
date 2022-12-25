@@ -226,6 +226,10 @@ class AdminController extends Controller
             return redirect()->route('ShowCategory' , $data->id);
         
     }
+    public function SelectedPosts()
+    {
+        return view('AdminPanel.SelectedPosts');
+    }
 
     public function Allowed($id)
     {

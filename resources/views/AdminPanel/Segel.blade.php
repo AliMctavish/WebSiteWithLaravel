@@ -20,7 +20,7 @@
     <div class="form-group mt-5"  >
         <label><h1>تعديل سجل الايام</h1></label>
        <h3 class="text-muted">هنا يتم كتابة المناسبات في داخل السجل</h3>
-        <input type="text"  class="ckeditor form-control " name="segel" value="{{$segel->segel}}" placeholder="{{$segel->segel}}"  name="subject" style="height: 30px" >
+        <input type="text" style="font-size: 20px"  class="ckeditor form-control " name="segel" value="{{$segel->segel}}" placeholder="{{$segel->segel}}"  name="subject" style="height: 30px" >
     </div>
     
 

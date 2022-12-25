@@ -44,6 +44,7 @@ Route::get('/imageSortByDownloads/{sortByDownloads}','App\Http\Controllers\HomeC
 Route::post('/SendContactUs','App\Http\Controllers\HomeController@SendContactUs')->name('SendContactUs');
 Route::get('/DeleteContactUs/{id}','App\Http\Controllers\AdminController@ContactUsDelete')->name('ContactUsDelete');
 Route::get('/AdminPanel/ContactUs','App\Http\Controllers\AdminController@ContactUs')->name('AdminContactUs');
+Route::get('/AdminPanel/SelectedPosts','App\Http\Controllers\AdminController@SelectedPosts')->name('SelectedPosts');
 Route::get('/AdminPanel/AdminPosts','App\Http\Controllers\AdminController@AdminPosts')->name('AdminPosts');
 Route::get('/AdminPanel/ShowCategory/{id}' , 'App\Http\Controllers\AdminController@ShowCategory')->name('ShowCategory');
 Route::get('/AdminPanel/DeletePost/{id}' , 'App\Http\Controllers\AdminController@DeletePost')->name('DeletePost');

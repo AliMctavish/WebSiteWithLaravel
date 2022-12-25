@@ -107,6 +107,9 @@
                 <a href="{{route('segel')}}">سجل الايام</a>
             </li>
             <li>
+                <a href="{{route('SelectedPosts')}}">المنشورات الرئيسية</a>
+            </li>
+            <li>
                 <a href="{{route('aboutUs')}}">من نحن ؟</a>
             </li>
             <li>
