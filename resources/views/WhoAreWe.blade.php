@@ -24,7 +24,7 @@
              من نحن ؟  
          </h4>
          <div class="d-flex justify-content-center">
-          <img src="{{url('/ICONS/logo.png')}}" style="width:480px;" alt="">
+          <img src="{{url('/ICONS/logo.png')}}" class="img-fluid" style="max-width:80%;" alt="">
         </div>
          
          <br>

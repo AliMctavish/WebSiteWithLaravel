@@ -28,7 +28,7 @@
 </div>
 
 @endif
-<h1 class="bg-light" style="font-size:45px; text-align:center; margin-top : 60px">كل الاقسام</h1>
+<h2 class="text-white p-3 " style="background-color:#3a3f41;  margin-top : 60px">كل الاقسام</h2>
 <br>
 <div class="container d-flex justify-content-center">
 

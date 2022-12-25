@@ -45,6 +45,9 @@
                             {{$post->title}}
                             </a> 
                         </h3>
+                          <div class="container">
+
+                          </div>
                             <iframe width="540"  height="315" src="https://www.youtube.com/embed/{{$post->VideoUrl}}" title="{{$post->title}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                         </div>
                     </div>
                     @endforeach

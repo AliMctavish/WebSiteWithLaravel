@@ -617,7 +617,7 @@ li::marker{margin: 0px !important;}
         <h3 class="text-center my-2">الحقوق في الاسلام</h3>
         <div class="row"  style="border:solid rgba(110, 110, 110, 0.39) 2px; border-radius:20px; background-color:white; padding:3px">
           @foreach($post15 as $post)
-          <div class="col-4 card"  style="border: none ; margin-inline:unset; position:relative; background-color:unset">
+          <div class="col-lg-4 col-sm-12 card"  style="border: none ; margin-inline:unset; position:relative; background-color:unset">
             <h5 class="card-title text-center">{{$post->title}}</h5>
             @if($post->image)
             <img style="border-radius: 10px; "  src="{{url('/Images' , $post->image)}}" class="card-img-top" alt="https://modo3.com/thumbs/fit630x300/126802/1641363367/%D9%85%D8%A7_%D9%87%D9%8A_%D8%B9%D9%84%D8%A7%D9%85%D8%A7%D8%AA_%D8%BA%D8%B6%D8%A8_%D8%A7%D9%84%D9%84%D9%87_%D8%B9%D9%84%D9%89_%D8%A7%D9%84%D8%A5%D9%86%D8%B3%D8%A7%D9%86.jpg">
@@ -637,7 +637,7 @@ li::marker{margin: 0px !important;}
 
 
 
-      <div class="col-lg-6 col-md-12 col-sm-12 ">
+      <div id="hideInfographic" class="col-lg-6 col-md-12 col-sm-12 ">
         <h3 class="text-center my-2">انفوغرافيك</h3>
         <div id="carouselExampleControls"   class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner px-5 my-5"  >
@@ -647,7 +647,7 @@ li::marker{margin: 0px !important;}
                 <a  href="{{route('ShowPost' , [$post->id , $post->category_id] )}}" id="backgroundinfographic" class="col-4 card" >
                   <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtT3dGrPUoFQHfV-3zzzhISStJfWlFjlwgrQ&usqp=CAU">
                   <div class="card-body">
-                  <div id="moveInfoText" class="card-text">{{$post->title}}</div>
+                  <div  class="card-text">{{$post->title}}</div>
                   </div>
                 </a>
                 @endforeach
@@ -659,7 +659,7 @@ li::marker{margin: 0px !important;}
                 <a  href="{{route('ShowPost' , [$post->id , $post->category_id] )}}" id="backgroundinfographic" class="col-4 card" >
                   <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtT3dGrPUoFQHfV-3zzzhISStJfWlFjlwgrQ&usqp=CAU">
                   <div class="card-body">
-                  <div id="moveInfoText" class="card-text">{{$post->title}}</div>
+                  <div  class="card-text">{{$post->title}}</div>
                   </div>
                 </a>
                 @endforeach
@@ -1083,6 +1083,7 @@ text-decoration: underline;
 }
 
 
+
 #divCon{
   color: white;
    padding-block:15px;
@@ -1311,7 +1312,12 @@ width: auto;
                 /* #stuff:hover > #stuffMade {
                   left:65%;
                 } */
-         
+                @media screen and (max-width:700px)
+                {
+                  #hideInfographic{
+                   visibility: hidden; 
+                  }
+                }
 
 
   </style>

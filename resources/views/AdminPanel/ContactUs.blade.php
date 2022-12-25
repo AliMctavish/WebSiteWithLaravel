@@ -4,22 +4,26 @@
 
 
 @section('details')
-<div class="p-3 container" style="background-color:rgb(255, 255, 255); max-width:1000px; ">
-    <svg xmlns="http://www.w3.org/2000/svg" style="color: rgb(61, 61, 61)"" width="106" height="106" fill="currentColor" class="bi bi-chat-square-dots" viewBox="0 0 16 16">
-        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-        <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-      </svg>
+<div class="p-3 mt-4 container" style="background-color:rgb(255, 255, 255); max-width:1400px; ">
+    
 
-    <h1
-        style="margin:20px;font-size: 60px; background: linear-gradient(-90deg, rgba(9, 9, 9, 0.637) 80%, rgba(94, 136, 86, 0.045) 90%, rgba(242, 242, 242, 0.045) 100%); ;  color:rgb(0, 0, 0) ;">
-        الرسائل في موقع الاسلام لماذا؟  
-    </h1>
-
-
-
-
+      <div class="p-2  text-white " style="background-color:#3a3f41" style="">
+        <h2>
+            <svg xmlns="http://www.w3.org/2000/svg"  width="36" height="36" fill="currentColor" class="bi bi-chat-square-dots" viewBox="0 0 16 16">
+                <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+              </svg>
+        الرسائل في موقع الاسلام لماذا؟        
+      </h2>
+      
+      
+      
+      
+    </div>
+    @if($sent->count())
     @foreach ($sent as $sents)
-    <div class="row" style="margin-bottom: 200px">
+    
+    <div class="container p-0" style="margin-bottom: 200px">
         
         <div class="bg-light border">
             <div class="container">
@@ -72,6 +76,13 @@
         
                  
                     @endforeach
+                    @else
+                    <div class="container text-muted border">
+                        <h2>
+                            لا توجد رسائل حاليا
+                        </h2>
+                    </div>
+                    @endif
                
              
 
@@ -82,6 +93,7 @@
         </div>
     </div>
 </div>
+
 
     @if (session()->has('status'))
     <p id="change" class="border border-dark p-2">

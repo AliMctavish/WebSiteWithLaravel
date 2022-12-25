@@ -21,7 +21,7 @@
 </div>
 
 @endif
-<h1 style="font-size:50px; text-align:center; margin-top : 60px">منشورات قسم {{$category->name}}  </h1>
+<h3 class="p-3 text-white" style=" background-color:#3a3f41; margin-top : 60px">منشورات قسم <b>{{$category->name}}</b>  </h3>
 @if($posts->count() == 0)
 <div class="container text-center">
 
@@ -43,7 +43,7 @@
 </div>
 @endif
 @if($posts->count() > 0)
-<div class="container mt-4 ">
+<div class=" mt-4 ">
     
     <div class="row d-flex justify-content-center" >
     @foreach($posts as $post)

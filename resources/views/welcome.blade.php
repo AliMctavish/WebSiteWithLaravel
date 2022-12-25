@@ -150,9 +150,20 @@
    
         
         <nav id="navBar" class="navbar  navbar-expand-lg navbar-light header">
-
+        
           <div  class="container" style="padding: 0px; ">
-          
+            <form id="formResultForMobile" class="bg-light border" style="border-radius: 20px; ; "  action="{{route('SearchEngine')}}"  >
+                          
+              <input style="; border:unset; background-color:unset; margin-right:30px" class="p-1 "  placeholder="بحث" name="SearchValue"type="search">
+              <button style="position: absolute ; left:88% ; top:4%; border-radius:50%; width:30px; background-color:rgb(225, 225, 225);border:unset; color:#007392"  type="submit"  class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" style="transform: translateX(6px)" width="20" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                </svg>
+              </button>
+              <label style="color: #00729285 ;transform: translate(6px, -1px); " for="searchBar"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+              </svg></label>
+            </form>
 
      
 
@@ -182,8 +193,6 @@
                   <a  class="nav-link" style="padding-left: 10px;" href="{{route('home')}}" aria-current="page">الرئيسية</a>
                 @foreach($categories as $navCat)  
                   @if($navCat->parent_id == 0 && $navCat->isAllowed == 1 )
-                  {{-- <a class="nav-link dropdown"  href="{{route('category' , $navCat->id)}}">{{Str::limit($navCat->name, 20, '...') }}</a> --}}
-
                     <li class="nav-item dropdown"  style="list-style:unset ; padding-left: 10px; " role="button"   aria-expanded="false">
                       <a id="onHov" class="nav-link dropdown-toggle" style=" margin-right:2px; " href="{{route('category' , $navCat->id)}}" role="button" aria-expanded="false">
                         {{$navCat->name}}
@@ -198,23 +207,25 @@
                         @endforeach 
                       </ul>
                     </li> 
+                    @endforeach 
+
+
+                    <li class="nav-item dropend my-2 "  style="list-style:unset ; " role="button"   aria-expanded="false">
+                      <a  id="onHov2" class="nav-link dropdown-toggle" style=" margin-right:2px; " href="{{route('category' , $navCat->id)}}" role="button" aria-expanded="false">
+                        <ul id="hoverd2" class="dropdown-menu dropdown-menu-light  mx-1 px-1">
+                          الاقسام الاخرى                          
+                          @foreach($categories as $subCat)
+                          @if($subCat->isAllowed != true && $subCat->parent_id == 0)
+                          <a  class="dropdown-item" style="color:white" href="{{route('category' , $subCat->id)}}" type="button"> {{$subCat->name}}</a>
+                          @endif
+                          @endforeach 
+                        </ul>
+                      </a>
+                      </li>
+
                  
                     
-                    @endforeach 
-                    
-                    
-                  <form id="formResultForMobile" class="bg-light border" style="border-radius: 20px; ; "  action="{{route('SearchEngine')}}"  >
-                          
-                    <input style="; border:unset; background-color:unset; margin-right:30px" class="p-1 "  placeholder="بحث" name="SearchValue"type="search">
-                    <button style="position: absolute ; left:88% ; top:4%; border-radius:50%; width:30px; background-color:rgb(225, 225, 225);border:unset; color:#007392"  type="submit"  class="btn btn-primary">
-                      <svg xmlns="http://www.w3.org/2000/svg" style="transform: translateX(6px)" width="20" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                      </svg>
-                    </button>
-                    <label style="color: #00729285 ;transform: translate(6px, -1px); " for="searchBar"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                    </svg></label>
-                  </form>
+             
 
                  
                  {{-- <li class="nav-item dropdown">
@@ -366,6 +377,26 @@
                     background-color: #71747a !important;
                     border: none !important;
                   }
+
+
+                  #onHov2:hover ~ #hoverd2{
+                    display: block !important;
+                    height:200px; 
+                    overflow-y:scroll;
+                    transform: translateX(70%) !important;
+                    background-color: #71747a !important;
+                    border: none !important;
+                  }
+               
+                  #hoverd2:hover{
+                    display:block !important;
+                    background-color: #3a3f41 !important;
+                    height:200px; 
+                    overflow-y:scroll;
+                    transform: translateX(70%) !important;
+                    background-color: #71747a !important;
+                    border: none !important;
+                  }
                   
                   #onHov:hover{
                     display: flex !important;
@@ -399,9 +430,26 @@
                     transform: translateX(0%) !important;
            
                   }
+                  #hoverd a{
+                    font-size: 18px !important;
+
+                  }
                   #onHov:hover ~ #hoverd{
                     display: block !important;
                     transform: translateX(0%) !important;
+                  }
+                  #onHov2:hover ~ #hoverd2{
+                    display: block !important;
+                    transform: translateX(0%) !important;
+                  }
+                  #hoverd2:hover{
+                    display:block !important;
+                    background-color: #ffffff !important;
+                    height:200px; 
+                    overflow-y:scroll;
+                    transform: translateX(0%) !important;
+                    background-color: #71747a !important;
+                    border: none !important;
                   }
                   }
 
@@ -660,12 +708,12 @@ footer{
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
     background-color: rgb(95, 95, 95);
-    max-width:700px;
+    max-width:500px;
     padding-inline: 10px;
     height: 50px;
     font-size: 20px;
     position: absolute;
-    right: -80%;
+    right: -100%;
     }
     .translator div{
       transform: translateY(-10px);
@@ -697,12 +745,10 @@ footer{
 
     
 #formResultForMobile{
-  position: absolute;
   visibility: hidden;
   display:none;
   z-index: 1;
-  right:100%;
-  bottom: -150%;
+  position: static;
 }
     @media  screen and (max-width: 700px){
       .hide{
@@ -719,7 +765,7 @@ footer{
   position: absolute;
   z-index: 1;
   right:20%;
-  bottom: -10%;
+  bottom: -30%;
 }
   
   

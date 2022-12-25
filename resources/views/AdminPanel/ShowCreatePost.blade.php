@@ -5,16 +5,16 @@
 @section('details')
 
 
-<h1 class="bg-light" style="font-size:50px; text-align:center; margin-top : 60px "> <svg xmlns="http://www.w3.org/2000/svg" class="mx-2" style="color:rgb(186, 186, 186)" width="66" height="66" fill="currentColor" class="bi bi-postcard-fill" viewBox="0 0 16 16">
+<h2 class="text-white p-3 rounded" style="background-color:#3a3f41;  margin-top : 60px "> <svg xmlns="http://www.w3.org/2000/svg"  style="color:rgb(186, 186, 186)" width="36" height="36" fill="currentColor" class="bi bi-postcard-fill" viewBox="0 0 16 16">
   <path d="M11 8h2V6h-2v2Z"/>
   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm8.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 0 .5.5H6a.5.5 0 0 0 0-1H2.5a.5.5 0 0 0-.5.5ZM2.5 7a.5.5 0 0 0 0 1H6a.5.5 0 0 0 0-1H2.5ZM2 9.5a.5.5 0 0 0 .5.5H6a.5.5 0 0 0 0-1H2.5a.5.5 0 0 0-.5.5Zm8-4v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5Z"/>
 </svg>
- اضافة منشور جديد</h1>
-    <div class="container   d-flex justify-content-center" >
+ اضافة منشور جديد</h2>
+    <div class="   d-flex justify-content-center" >
 
-    <div class="container p-5  my-4" style="font-size: 26px ; background-color:white; color:black ; border-radius:30px ; box-shadow:1px 1px 8px 2px rgb(82, 82, 82)">
+    <div class="container p-5  my-4" style="font-size: 26px ; background-color:white; color:black ; border-radius:20px ; box-shadow:1px 1px 8px 2px rgb(82, 82, 82)">
 
-    <form id="form" method="post" action="{{route('CreatePost')}}" class="row g-3" enctype="multipart/form-data" >
+    <form id="form" method="post" action="{{route('CreatePost')}}" class="row g-3 " enctype="multipart/form-data" >
 
       @csrf 
       
@@ -32,6 +32,8 @@
           <label for="inputEmail4" class="form-label">الكاتب</label>
           <input type="text " class="form-control" placeholder="الكاتب او الباحث" id="inputEmail4" name="writer">
         </div>
+
+
 
 
 

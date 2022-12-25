@@ -5,13 +5,10 @@
 @section('details')
 
 
-<h1 class="bg-light" style="font-size:50px; text-align:center; margin-top : 60px">انشاء قسم جديد</h1>
-    <div class="container p-5 
-    
-    
-    d-flex justify-content-center">
+<h2 class="text-white p-3  rounded" style=" background-color:#3a3f41; margin-top : 60px">انشاء قسم جديد</h2>
+    <div class="d-flex justify-content-center">
 
-    <div class="container p-5  my-4" style="font-size: 30px ; background-color:white; color:black ; border-radius:30px ; box-shadow:1px 1px 8px 2px rgb(82, 82, 82)">
+    <div class="container p-5  my-2" style="font-size: 30px ; background-color:white; color:black ; border-radius:0px ; box-shadow:1px 1px 8px 2px rgb(82, 82, 82)">
 
     <form id="form" method="post" action="{{route('CreateCategory')}}" class="row g-3" enctype="multipart/form-data" >
       @csrf  

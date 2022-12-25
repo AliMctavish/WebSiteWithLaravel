@@ -21,12 +21,12 @@
 </div>
 
 @endif
-<h1 class="bg-light " style="font-size:50px; text-align:center; margin-top : 60px "> <svg xmlns="http://www.w3.org/2000/svg"  style="color:rgb(186, 186, 186)"  width="56" height="56" class="mx-3" fill="currentColor" class="bi bi-bookmarks-fill" viewBox="0 0 16 16">
+<h1 class=" text-white h2 p-3" style="background-color:#3a3f41;  margin-top : 60px "> <svg xmlns="http://www.w3.org/2000/svg"  class="text-white mx-2"  width="36" height="36" class="mx-3" fill="currentColor" class="bi bi-bookmarks-fill" viewBox="0 0 16 16">
     <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z"/>
     <path d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1H4.268z"/>
   </svg>منشورات كل الاقسام</h1>
-  <div class="container mt-4">
-    <div class="row d-flex justify-content-center" >
+  <div class="container  mt-4">
+    <div class="row  d-flex justify-content-between" >
 
     @foreach($posts as $post)
     

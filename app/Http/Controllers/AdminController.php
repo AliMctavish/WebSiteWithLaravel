@@ -11,6 +11,7 @@ use App\Models\posts;
 use App\Models\Segel;
 use App\Models\WhoAreWe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller
@@ -82,7 +83,7 @@ class AdminController extends Controller
     }
     public function ShowCategories()
     { 
-        $posts = posts::orderBy('updated_at', 'DESC')->paginate(10);
+        $posts = posts::orderBy('updated_at', 'DESC')->paginate(12);
         $categories =  MainCategory::all()->sortByDesc('updated_at');
         return view('AdminPanel.ShowCategories' , ['posts' => $posts , 'categories' => $categories ]);
     }
@@ -141,7 +142,7 @@ class AdminController extends Controller
     }
     public function ShowMainCategories()
     {
-        $categories = MainCategory::where('parent_id' , 0)->paginate(10);
+        $categories = MainCategory::where('parent_id' , 0)->paginate(12);
         $SubCategories = MainCategory::all();            
         return view('AdminPanel.ShowMainCategories' , ['categories' =>$categories  , 'SubCategories' => $SubCategories] );
     }
@@ -226,10 +227,7 @@ class AdminController extends Controller
             return redirect()->route('ShowCategory' , $data->id);
         
     }
-    public function SelectedPosts()
-    {
-        return view('AdminPanel.SelectedPosts');
-    }
+ 
 
     public function Allowed($id)
     {

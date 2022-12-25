@@ -11,12 +11,12 @@
     @method('POST')
 
     <div class="form-group" >
-        <label><h1>من نحن ؟</h1></label>
+        <div class="  p-2 mt-5 text-white " style="background-color:#3a3f41"><h2>من نحن ؟</h2></div>
         <textarea  class="ckeditor form-control "  name="subject" style="height: 6700px"  >{{$data->subject}}</textarea>
     </div>
     
-
     <button class="btn my-2 btn-success text-end">تعديل</button>
+
 </form>
 
 

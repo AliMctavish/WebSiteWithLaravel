@@ -98,7 +98,7 @@
         <ul class="navbar-nav list-unstyled components" >
 
             <li>
-            <a href="{{route('AdminPanel')}}" >التفاصيل</a>
+            <a href="{{route('AdminPanel')}}" >الرئيسية</a>
             </li>
             <li>
                 <a href="{{route('AdminContactUs')}}">رسائل الصفحة </a>
@@ -106,9 +106,7 @@
             <li>
                 <a href="{{route('segel')}}">سجل الايام</a>
             </li>
-            <li>
-                <a href="{{route('SelectedPosts')}}">المنشورات الرئيسية</a>
-            </li>
+           
             <li>
                 <a href="{{route('aboutUs')}}">من نحن ؟</a>
             </li>

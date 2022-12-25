@@ -25,7 +25,6 @@ return new class extends Migration
             $table->bigInteger('downloads')->default(0);
             $table->string('image')->nullable();
             $table->bigInteger('category_id')->unsigned();
-            $table->boolean('isSelected')->default(false);
             $table->foreign('category_id')->references('id')->on('main_categories')->onDelete('cascade');
 
         });

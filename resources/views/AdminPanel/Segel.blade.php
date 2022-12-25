@@ -17,8 +17,8 @@
     @csrf
     @method('POST')
 
-    <div class="form-group mt-5"  >
-        <label><h1>تعديل سجل الايام</h1></label>
+    <div class="form-group mt-5 bg-light border"  >
+        <div class="  p-2  text-white " style="background-color:#3a3f41"><h2>تعديل سجل الايام</h2></div>
        <h3 class="text-muted">هنا يتم كتابة المناسبات في داخل السجل</h3>
         <input type="text" style="font-size: 20px"  class="ckeditor form-control " name="segel" value="{{$segel->segel}}" placeholder="{{$segel->segel}}"  name="subject" style="height: 30px" >
     </div>

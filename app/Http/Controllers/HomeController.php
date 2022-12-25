@@ -98,7 +98,7 @@ class HomeController extends Controller
         
 
 
-        $posts = posts::all()->sortByDesc('updated_at');
+        $posts = posts::all()->sortByDesc('created_at');
 
 
 
