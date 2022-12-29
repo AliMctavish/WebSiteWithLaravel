@@ -26,7 +26,7 @@
     <path d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1H4.268z"/>
   </svg>منشورات كل الاقسام</h1>
   <div class="container  mt-4">
-    <div class="row  d-flex justify-content-between" >
+    <div class="row  d-flex justify-content-center" >
 
     @foreach($posts as $post)
     
@@ -78,6 +78,21 @@
 let sus = document.getElementById('sus');
 console.log(sus);
 
+
+let els =  document.getElementsByClassName("page-item")
+
+console.log(els)
+for(let i=0 ; i< els.length; i++)
+{
+   console.log(els[i]);
+   els[i].style.backgroundColor ="red !important";
+   els[i].className = "page-item disabled !important";
+   els[i].classList.add('disabled');
+}
+
+els.forEach(el => {
+    console.log(el);
+});
     
 </script>
 
@@ -87,12 +102,17 @@ console.log(sus);
 <style>
        .pagination .page-link{
         color:black !important;
+        border-radius: 20% !important;
+        font-size: 20px !important;
     }
     #sus{
         animation: susMove 0.5s ;
         
     }
-
+       .pagination .page-item:disabled{
+        font-size: 20px !important;
+        background-color: red !important;
+    }
     @keyframes susMove{
         0%{
             transform: translateX(2000px)

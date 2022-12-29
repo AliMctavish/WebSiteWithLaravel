@@ -66,7 +66,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-week" viewBox="0 0 16 16">
                 <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
                 <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-              </svg> الأربعاء - 07 رجب 1443 ● 27 شباط 2022 
+              </svg> الاثنين - 07 رجب 1443 ● 27 شباط 2022 
               {{now()}}
             </p>
             <hr class="hide" style="margin:0px">
@@ -192,13 +192,16 @@
                 
                   <a  class="nav-link" style="padding-left: 10px;" href="{{route('home')}}" aria-current="page">الرئيسية</a>
                 @foreach($categories as $navCat)  
-                  @if($navCat->parent_id == 0 && $navCat->isAllowed == 1 )
+                  @if($navCat->parent_id == 0 && $navCat->isAllowed == 1)
                     <li class="nav-item dropdown"  style="list-style:unset ; padding-left: 10px; " role="button"   aria-expanded="false">
                       <a id="onHov" class="nav-link dropdown-toggle" style=" margin-right:2px; " href="{{route('category' , $navCat->id)}}" role="button" aria-expanded="false">
                         {{$navCat->name}}
                       </a>
-                    
-                      @endif    
+                  
+                  @else
+
+                  @endif 
+
                       <ul id="hoverd" class="dropdown-menu dropdown-menu-light">
                         @foreach($categories as $subCat)
                         @if($navCat->id == $subCat->parent_id)
@@ -321,8 +324,8 @@
                     })
                   }
                  
-                  var writeColor =  localStorage.getItem("colorTheme");
-                  var writeText =  localStorage.getItem("textColor");
+                  var writeColor = localStorage.getItem("colorTheme");
+                  var writeText  = localStorage.getItem("textColor");
                   var writeTextColor =  localStorage.getItem("text");
                   var trans =  localStorage.getItem("textTrans");
                   var whos=  localStorage.getItem("who");
@@ -547,7 +550,15 @@
 
 <style>
 
-  
+  @media screen and (max-width:1200px)
+  {
+    #formResult{
+  position: absolute;
+  z-index: 1;
+  right:80%;
+  bottom: -150%;
+}
+  }
 
   
 
@@ -562,9 +573,11 @@ footer{
 #formResult{
   position: absolute;
   z-index: 1;
-  right:72%;
+  right:74%;
   bottom: -150%;
 }
+
+
 
 #theme{
   position: absolute;
@@ -695,9 +708,16 @@ footer{
       position: absolute;
     }
     }
-  
+    
+    @media screen and (max-width: 1300px)
+    {
+      #formResult{
+        display:none;
+      }
+    }
     @media  screen and (max-width: 1200px)
     {
+      
     .nav-link  a{
         transition: 0.5s all;
         color: white !important;
@@ -713,7 +733,7 @@ footer{
     height: 50px;
     font-size: 20px;
     position: absolute;
-    right: -100%;
+    right: -0%;
     }
     .translator div{
       transform: translateY(-10px);
@@ -757,6 +777,9 @@ footer{
       #formResult{
         display:none;
       }
+      .translator{
+        visibility: hidden;
+      }
 
       
 #formResultForMobile{
@@ -764,7 +787,7 @@ footer{
   display: inline;
   position: absolute;
   z-index: 1;
-  right:20%;
+  right:40%;
   bottom: -30%;
 }
   

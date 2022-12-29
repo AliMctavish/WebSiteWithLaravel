@@ -42,7 +42,7 @@
                     @endif
                     @endforeach
                     @if(!$data->image)
-                    <img src="https://picsum.photos/500/300?image={{ 5 + 5}}" class="card-img-top" alt="https://c8.alamy.com/comp/2B9EEJ7/conceptual-image-of-a-neural-network-in-the-human-brain-2B9EEJ7.jpg">
+                    <img src="https://picsum.photos/500/300?image={{5 + 5}}" class="card-img-top" alt="https://c8.alamy.com/comp/2B9EEJ7/conceptual-image-of-a-neural-network-in-the-human-brain-2B9EEJ7.jpg">
                     @endif
                     @if($data->image)
                     <img src="{{url('/Images' , $data->image) }}" alt="">

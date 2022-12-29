@@ -114,7 +114,7 @@
           }
 
           #card2:hover{
-            padding:10px;
+            padding:5px;
           }
         </style>
         

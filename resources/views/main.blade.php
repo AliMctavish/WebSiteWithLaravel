@@ -88,14 +88,14 @@
 
         @for($i =  0 ; $i < 5 ; $i++)
         @if($i == 0)
-        <div id="carousel" class="carousel-item active  card-group" style="">
+        <div id="carousel" class="carousel-item  active  card-group" style="">
           @foreach($postSlider[0] as $post)
           <a href="{{route('ShowPost' , [$post->id , $post->category_id])}}" id="culture"  style="border: none" class="card">
             @if($post->image)
             <img  style="border-radius: 10px; width:22rem; height:200px" class="img-fluid" src="{{url('/Images' , $post->image)}}">
             @endif
             @if(!$post->image)
-            <img src="/ICONS/makka.jpg" style="border-radius: 10px; max-width:100%; "  alt="">
+            <img src="/ICONS/makka.jpg"  style="border-radius: 10px; width:22rem; height:200px" class="img-fluid"  alt="">
             @endif
             <div class="card-body">
               <div class="card-text" >{{$post->title}}</div>
@@ -104,14 +104,14 @@
           @endforeach
           </div>
           @else
-        <div id="carousel" class="carousel-item  card-group" style="">
+        <div id="carousel" class="carousel-item  card-group  col-sm-12" style="">
           @foreach($postSlider[$i] as $post)
           <a href="{{route('ShowPost' , [$post->id , $post->category_id])}}" id="culture"  style="border: none" class="card">
             @if($post->image)
             <img style="border-radius: 10px; width:22rem; height:200px" class="img-fluid" src="{{url('/Images' , $post->image)}}">
             @endif
             @if(!$post->image)
-            <img src="/ICONS/makka.jpg" style="border-radius: 10px; max-width:100%; "  alt="">
+            <img src="/ICONS/makka.jpg"  style="border-radius: 10px; width:22rem; height:200px" class="img-fluid"  alt="">
             @endif
             <div class="card-body">
               <div class="card-text" >{{$post->title}}</div>
@@ -257,13 +257,13 @@
               </div>
           </div>
       </div>
-      <div class="col-lg-7 col-md-10 pb-5">
+      <div class="col-lg-7 col-md-12 pb-5">
         <h3 style="text-align: center; font-weight:700">نبي الاسلام</h3>
         <div class="container" id="prophetMohammed" >
           <div class="row p-5"  style=" max-width:730px">
             <div class="col-2">  
             </div>
-            <div class="col-10">
+            <div class="col-lg-10 col-sm-12">
               <div class="row row-cols-1 row-cols-md-2   g-4">
                 @foreach($post5 as $post)
                 <div  class="col">
@@ -315,7 +315,7 @@
   <div class="container">
     <div class="row">
 
-      <div class="col-lg-8 col-md-10 col-sm-12 gx-5">
+      <div class="col-lg-8 col-md-12 col-sm-12 gx-5">
         <h4 style="text-align:start; font-weight:700; padding:10px">ريحانة وليست قهرمانة</h4>
         <div class="row">
           <div class="card-group pb-5" style="box-shadow: 0px 11px 21px -16px rgba(0,0,0,0.75);
@@ -372,21 +372,26 @@
                     {{$category->name}}
                   </p>
                 </div>
-                <div class="row g-0">
+                <div class="row g-0 ">
                   <div class="col-md-7" style="position: relative";>
-                    <img src="https://img.freepik.com/premium-photo/happy-man-sitting-sofa-talking-his-friend-holding-mobile-hand_23-2148160191.jpg?w=2000" style="border-radius: 20px;" class="img-fluid" alt="...">
+                    <img src="https://img.freepik.com/premium-photo/happy-man-sitting-sofa-talking-his-friend-holding-mobile-hand_23-2148160191.jpg?w=2000" style="border-radius: 20px; height:100% ; width:100%" class="img-fluid" alt="...">
                 
                   </div>
                   <div class="col-md-5">
-                    <div class="p-2" >
-                      <h5 class="" style="font-size:18px">{{$post->title}}</h5>
-                      <li>
-                      <p style="color:black; font-size:14px ; margin:0px">
+                    <div class="p-1" >
+                      <h5 class=" my-3" style="font-size:18px ; font-weight:700">{{$post->title}}</h5>
+                      
+                      <div class="d-flex flex-reverse" style="color:black; font-size:14px ; margin:0px">
+                        <div class="my-2 mx-1" style="width:6px; height:6px ; background-color:#0e90bf " ></div>
                       {{$post->writer}}  
+                      </div>
+                      
+                      <p class="card-text p-0 m-0" style="font-size: 15px ; position: relative;"><small class="text-muted">{{$post->updated_at}}</small>   
                       </p>
-                      </li>
-                      <p class="card-text" style="font-size: 15px ; position: relative;"><small class="text-muted">{{$post->updated_at}}</small>                      
-                      </p>
+                    
+                      <div  class="d-flex flex-row-reverse  text-muted" style="font-size: 15px" ><div href="{{route('ShowPost' , [$post->id , $post->category_id])}}" class="text-muted" style="color:black ; font-weight:700">المزيد</div>
+                        <div style="width:7px;height:7px ; background-color:#0e90bf " class="mx-1 my-2"></div>   
+                      </div>               
                     </div>
                   </div>
                  
@@ -414,18 +419,26 @@
           <div class="col-lg-7 col-md-12 col-sm-12">
             <h4  style="text-align:start; font-weight:700 ;">كتاب المسلمين المقدس</h4>
 
-            <div class="card bg-light">
+            <div class="card bg-light m-0">
               <h5 style="text-align: center; font-size:26px; font-weight:800">القران الكريم</h5>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Qur%27an_and_Rehal.jpg" style="border-radius:5%; margin-inline:30px " alt="">
+              <div class="d-flex justify-content-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Qur%27an_and_Rehal.jpg"  style="border-radius:5%;  ;max-width:70%" alt="">
+              </div>
               <div class="row p-3" style="margin-inline: 10px">
-                <div class="col-lg-5 col-sm-6 col-md-5 m-2 card-text g-0">
+                <div class="col-lg-5 col-sm-5 col-md-5 card-text g-0" style="margin-right:50px">
                   @foreach($category1 as $cat)
-                  <li><a href="{{route('category' , $cat->id)}}">{{$cat->name}}</a></li>
+                              <div  class="d-flex   text-muted mt-3" style="font-size: 16px" >
+                                <div style="width:6px;margin-top:10px; height:6px ; background-color:#0e90bf " class="mx-1"></div>
+                                <a href="{{route('category' , $cat->id)}}">{{$cat->name}}</a>
+                              </div>
                   @endforeach
                 </div>
-                <div class="col-lg-5 col-md-6 col-sm-5 card-text m-2 g-0">
+                <div class="col-lg-5 col-md-5 col-sm-5 card-text  g-0">
                   @foreach($category2 as $cat)
-                  <li><a href="{{route('category' , $cat->id)}}">{{$cat->name}}</a></li>
+                  <div  class="d-flex   text-muted mt-3" style="font-size: 16px" >
+                    <div style="width:6px;margin-top:10px; height:6px ; background-color:#0e90bf " class="mx-1"></div>
+                    <a href="{{route('category' , $cat->id)}}">{{$cat->name}}</a>
+                  </div>
                   @endforeach
                 </div>
              
@@ -441,10 +454,14 @@
             <h4 style="text-align: start; font-size:25px; font-weight:600; color:white">فنون اسلامية</h4>
             <div class="row row-cols-2 bg-light" style="border-radius: 0px 0px 20px 20px; transform:translateY(10px)">
              @foreach($post9 as $post)
-              <div class="col mt-2">
+             @if ($loop->first)
+              <div class="col-12  my-4">
+              </div>   
+             @endif
+              <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
               <a  href="{{route('ShowPost' , [$post->id , $post->category_id])}}" class="card mb-3 " style="max-width: 420px; background-color:#f4f5f600; border:none; position: relative;">
                 <div id="culture" class="row g-0">
-                  <div class="col-md-4">
+                  <div class="col-md-4 ">
                     @if($post->image)
                     <img  src="{{url('/Images' , $post->image)}}" class="img-fluid rounded-start" alt="...">
                     @endif
@@ -455,7 +472,10 @@
                   <div class="col-md-8">
                     <div class="card-body">
                       <h5 class="card-title">{{$post->title}}</h5>
-                      <p class="card-text"><small class="text-muted">{{$post->updated_at}}</small></p>
+                      <p class="card-text"><small class="text-muted"><svg class=" mx-1" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-minus" viewBox="0 0 16 16">
+                        <path d="M5.5 9.5A.5.5 0 0 1 6 9h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
+                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                      </svg>{{$post->updated_at}}</small></p>
                     </div>
                   </div>
                 </div>
@@ -515,7 +535,10 @@
           <hr style=" border-top: 2px dashed gray; background-color:unset ; margin-buttom:10px ">
           @endif
           @endforeach
-          <div id="textList" class="text-end" ><li><a href="{{route('ShowPost' , [$post->id , $post->category_id])}}" style="color:black ; font-weight:700">المزيد</a></li></div>
+          <div id="textList" class="d-flex flex-row-reverse  text-muted" style="font-size: 15px" ><a href="{{route('ShowPost' , [$post->id , $post->category_id])}}" class="text-muted" style="color:black ; font-weight:700">المزيد</a>
+            <div style="width:7px;margin-top:10px; height:7px ; background-color:#0e90bf " class="mx-1"></div>
+
+          </div>
           <?php $i++ ?>
           @endforeach
 
@@ -585,13 +608,16 @@ li::marker{margin: 0px !important;}
             </a>
             @endforeach
           </div>
-          <div class="row mt-4 p-3">
+          <div class="row mt-4 p-2">
             <h4 style="color:white">ابواب وتصنيفات الكتب</h4>
             @foreach($category4 as $catego)
             <div class="col mt-2" id="gates">
              <h4><a href="{{route('category' , $catego->id)}}">{{$catego->name}}</a></h4> 
             </div>
             @endforeach
+            <div  class=" d-flex flex-row-reverse  text-muted" style="font-size: 15px" ><a href="{{route('category' , $catego->id)}}" class="" style="color:white ; font-weight:700">المزيد</a>
+              <div style="width:7px;height:7px ; background-color:#0e90bf ; " class="mx-1 my-2"></div>   
+            </div>   
           </div>
           </div>
         </div>
@@ -626,9 +652,14 @@ li::marker{margin: 0px !important;}
             <img src="/ICONS/makka.jpg" style="border-radius: 10px; max-width:100%; "  alt="">
             @endif
             <div class="card-body">
-              <p class="card-text">{{Str::limit($post->subject, 20, '...')}}</p>
-              <p class="card-text"><small class="text-muted">{{$post->updated_at}}</small></p>
-              <div id="culture"  style="position: absolute; right:70%; top:85%"><li><a href="{{route('ShowPost' , [$post->id , $post->category_id])}}" style="color:black; font-weight:700">المزيد</a></li></div>
+              <p class="card-text p-0 m-0">{{Str::limit($post->subject, 20, '...')}}</p>
+              <p class="card-text p-0 m-0"><small class="text-muted">{{$post->updated_at}}</small></p>
+              <div class="d-flex flex-row-reverse" id="culture"  >
+                
+                <a  href="{{route('ShowPost' , [$post->id , $post->category_id])}}" style="color:black; font-weight:700" class="text-muted">المزيد
+                </a>
+                <div style="width:6px;margin-top:10px; height:7px ; background-color:#0e90bf " class="mx-1"></div>
+              </div>
             </div>
           </div>
           @endforeach
@@ -712,7 +743,7 @@ li::marker{margin: 0px !important;}
       <div class="row">
         
         @foreach($post14 as $post )
-        <div class="col-6">   
+        <div class="col-lg-6 col-sm-12 d-flex ">   
         <a id="adab" href="{{route('ShowPost' ,[$post->id , $post->category_id])}}" class="card mb-3 " >
           <div class="row g-0">
             <div class="col-md-4">
@@ -725,8 +756,15 @@ li::marker{margin: 0px !important;}
             </div>
             <div class="col-md-8">
               <div id="adabDiv" class="card-body">
-                <h5 class="card-title">{{$post->title}}</h5>
-                <p class="card-text"><small class="text-muted">{{$post->updated_at}}</small></p>
+                <h5 class="card-title my-2">{{$post->title}}</h5>
+                <div class="d-flex flex-reverse" style="color:black; font-size:14px ; margin:0px">
+                  <div class="mt-2 mx-1" style="width:6px; height:6px ; background-color:#0e90bf " ></div>
+                د.احمد حمود طاهر 
+                </div>
+                <p class="card-text"><small class="text-muted"><svg class=" mx-1" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-minus" viewBox="0 0 16 16">
+                  <path d="M5.5 9.5A.5.5 0 0 1 6 9h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
+                  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                </svg>{{$post->updated_at}}</small></p>
               </div>
             </div>
           </div>
@@ -740,7 +778,7 @@ li::marker{margin: 0px !important;}
     <h3 class="text-center my-3">ديموغرافيا الاسلام</h3>
     <div class="row d-flex justify-content-center my-5">
       @foreach($post21 as $post)
-      <a href="{{route('ShowPost' , [$post->id , $post->category_id])}}" id="card" class="col-4 card " style="border: none; background-color:unset" >
+      <a href="{{route('ShowPost' , [$post->id , $post->category_id])}}" id="card" class="col-lg-4 col-sm-12 card " style="border: none; background-color:unset" >
         <img class="rounded" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtT3dGrPUoFQHfV-3zzzhISStJfWlFjlwgrQ&usqp=CAU">
         <div class="card-body">
           <p class="card-text">{{$post->title}}</p>
@@ -1274,13 +1312,12 @@ width: auto;
                   transform:rotate(45deg);
                 }
                 #textMade{
-                  transform: rotate(-45deg) translate(-35px , -10px) ;
+                  transform: rotate(-45deg) translate(-37px , -18px) ;
                   color: white;
                   text-align: start;
                 }
-                #textMade{
-                  transform: rotate(-45deg) translate(-35px , -10px) ;
-                }
+               
+              
 
                 @media screen and (max-width:1500px)
                 {

@@ -12,28 +12,25 @@
 
     <form id="form" method="post" action="{{route('CreateCategory')}}" class="row g-3" enctype="multipart/form-data" >
       @csrf  
-      
-        <div class="col-md-6">
+        <div class="col-lg-6 col-md-4">
           <label for="inputEmail4" class="form-label">عنوان القسم</label>
-          <input type="text " class="form-control  @error('name') is-invalid @enderror" placeholder="عنوان القسم" id="inputEmail4" name="name">
+          <input type="text" class="form-control  @error('name') is-invalid @enderror" placeholder="عنوان القسم" id="inputEmail4" name="name">
           @error('name')
           <div class="bg-danger m-2 px-2 text-light" style="font-size: 20px">
               يجب اختيار عنوان القسم
           </div>
-      @enderror
+          @enderror
         </div>
 
 
    
 
-        <div class="col-md-6">
+        <div class="col-lg-6 col-md-4">
           <label for="inputAddress2" class="form-label">القسم التابع له</label>
-          <select  style="border-radius: 10px; border:solid rgb(29, 68, 114) 2px; ;padding:3px ; max-width:500px" name="parent_id"  >
+          <select  style="; border-radius: 10px; border:solid rgb(29, 68, 114) 2px; ;padding:3px ; max-width:500px ;" name="parent_id"  >
             <option hidden style="text-align:center" value="0" selected>القسم الرئيسي</option>
           @foreach($categories as $category)
-        
             <option  style="font-size: 30px ; text-align:center; background-color:rgb(255, 255, 255);" value="{{$category->id}}">{{$category->name}}</option>
-         
           @endforeach  
           </select>
         </div>

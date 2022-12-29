@@ -16,7 +16,7 @@
 @if(session()->has('statusChange'))
 <div class="container" style="position: relative " id="sus">
 
-    <p style="background-color: rgb(128, 115, 0); font-size:20px; color:white" >{{session()->get('statusChange')}}</p>
+    <p style="background-color: rgb(0, 128, 26); font-size:20px; color:white" >{{session()->get('statusChange')}}</p>
 
 </div>
 
