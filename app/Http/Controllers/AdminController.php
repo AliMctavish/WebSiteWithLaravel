@@ -81,11 +81,11 @@ class AdminController extends Controller
         $posts = posts::all()->where('category_id' , $id);
         return view('AdminPanel.ShowCategory' , ['category' => $data , 'posts'  => $posts , 'categories' => $categories]);
     }
-    public function ShowCategories()
+    public function ShowAllPosts()
     { 
         $posts = posts::orderBy('updated_at', 'DESC')->paginate(12);
         $categories =  MainCategory::all()->sortByDesc('updated_at');
-        return view('AdminPanel.ShowCategories' , ['posts' => $posts , 'categories' => $categories ]);
+        return view('AdminPanel.ShowAllPosts' , ['posts' => $posts , 'categories' => $categories ]);
     }
    
   
@@ -110,7 +110,7 @@ class AdminController extends Controller
 
         $request->session()->flash('status','تم حذف القسم مع منشوراته بنجاح !');
 
-        return redirect()->route('ShowMainCategories');
+        return redirect()->route('ShowAllCategories');
     }
 
  
@@ -140,11 +140,11 @@ class AdminController extends Controller
 
         return view('AdminPanel.ShowCreateCategory' , ['categories' =>$categories ] );
     }
-    public function ShowMainCategories()
+    public function ShowAllCategories()
     {
         $categories = MainCategory::where('parent_id' , 0)->paginate(12);
         $SubCategories = MainCategory::all();            
-        return view('AdminPanel.ShowMainCategories' , ['categories' =>$categories  , 'SubCategories' => $SubCategories] );
+        return view('AdminPanel.ShowAllCategories' , ['categories' =>$categories  , 'SubCategories' => $SubCategories] );
     }
     public function AboutUs(Request $request)
     {
@@ -235,18 +235,18 @@ class AdminController extends Controller
         $category  = MainCategory::findOrFail($id);
         if($categories >= 11 )
         {
-            return redirect()->route('ShowMainCategories')->with(["faild" => "يجب ان يكون عدد الاقسام الظاهرة ليس اكثر من 11"]);
+            return redirect()->route('ShowAllCategories')->with(["faild" => "يجب ان يكون عدد الاقسام الظاهرة ليس اكثر من 11"]);
         }
         $category->isAllowed = true;
         $category->save();
-        return redirect()->route('ShowMainCategories');
+        return redirect()->route('ShowAllCategories');
     }
     public function NotAllowed($id)
     {
         $category  = MainCategory::findOrFail($id);
         $category->isAllowed = false;
         $category->save();
-        return redirect()->route('ShowMainCategories');
+        return redirect()->route('ShowAllCategories');
     }
 
     public function CreatePost(Request $request)
@@ -285,7 +285,7 @@ class AdminController extends Controller
             $request->session()->flash('statusChange' , "  تم نشر منشور بعنوان {$data->title} ! ");
         
     
-            return redirect()->route('ShowCategories');
+            return redirect()->route('ShowAllPosts');
         
     }
 
@@ -336,7 +336,7 @@ class AdminController extends Controller
         $request->session()->flash('statusChange' , 'تم التعديل على المنشور ! ');
     
 
-        return redirect()->route('ShowCategories');
+        return redirect()->route('ShowAllPosts');
     }
   
     public function UpdateCategory(Request $request, $id)
@@ -352,7 +352,7 @@ class AdminController extends Controller
         $request->session()->flash('statusChange' , 'تم التعديل على القسم ! ');
     
 
-        return redirect()->route('ShowMainCategories');
+        return redirect()->route('ShowAllCategories');
     }
   
 

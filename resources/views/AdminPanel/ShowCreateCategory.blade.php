@@ -23,8 +23,6 @@
         </div>
 
 
-   
-
         <div class="col-lg-6 col-md-4">
           <label for="inputAddress2" class="form-label">القسم التابع له</label>
           <select  style="; border-radius: 10px; border:solid rgb(29, 68, 114) 2px; ;padding:3px ; max-width:500px ;" name="parent_id"  >
@@ -34,10 +32,11 @@
           @endforeach  
           </select>
         </div>
-    
+
         <div class="col-12">
           <button type="submit" class="btn" style="background-color: rgb(43, 95, 129); color:white; font-size:20px; transform:translateY(40px)">انشاء القسم</button>
         </div>
+        
       </form>
 
     </div>

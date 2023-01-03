@@ -127,8 +127,8 @@
                 
                   <ul>
                     <li><a class="dropdown-item" href="{{route('ShowCreatePost')}}">اضافة منشور جديد</a></li>
-                      <li><a class="dropdown-item" href="{{route('ShowCategories')}}">عرض كل المنشورات</a></li>
-                      <li><a class="dropdown-item" href="{{route('ShowMainCategories')}}">عرض كل الاقسام</a></li>
+                      <li><a class="dropdown-item" href="{{route('ShowAllPosts')}}">عرض كل المنشورات</a></li>
+                      <li><a class="dropdown-item" href="{{route('ShowAllCategories')}}">عرض كل الاقسام</a></li>
                       <li><a class="dropdown-item" href="{{route('ShowCreateCategory')}}">اضافة قسم</a></li>
                    
                   </ul>

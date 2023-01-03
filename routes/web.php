@@ -57,12 +57,12 @@ Route::get('/AdminPanel/ShowCreatePostCategory/{id}' , 'App\Http\Controllers\Adm
 
 Route::get('/AdminPanel/ShowUpdatePosts/{id}' , 'App\Http\Controllers\AdminController@ShowUpdatePosts')->name('ShowUpdatePosts');
 Route::get('/AdminPanel/ShowCreateCategory' , 'App\Http\Controllers\AdminController@ShowCreateCategory')->name('ShowCreateCategory');
-Route::get('/AdminPanel/ShowMainCategories' , 'App\Http\Controllers\AdminController@ShowMainCategories')->name('ShowMainCategories');
+Route::get('/AdminPanel/ShowAllCategories' , 'App\Http\Controllers\AdminController@ShowAllCategories')->name('ShowAllCategories');
 Route::get('/AdminPanel/ShowUpdateCategory/{id}' , 'App\Http\Controllers\AdminController@ShowUpdateCategory')->name('ShowUpdateCategory');
 Route::post('/AdminPanel/CreateCategory' , 'App\Http\Controllers\AdminController@CreateCategory')->name('CreateCategory');
-Route::get('/AdminPanel/ShowCategories/isAllowed/{id}' , 'App\Http\Controllers\AdminController@Allowed')->name('Allowed');
-Route::get('/AdminPanel/ShowCategories/isNotAllowed/{id}' , 'App\Http\Controllers\AdminController@NotAllowed')->name('NotAllowed');
-Route::get('/AdminPanel/ShowCategories' , 'App\Http\Controllers\AdminController@ShowCategories')->name('ShowCategories');
+Route::get('/AdminPanel/ShowAllCategories/isAllowed/{id}' , 'App\Http\Controllers\AdminController@Allowed')->name('Allowed');
+Route::get('/AdminPanel/ShowAllCategories/isNotAllowed/{id}' , 'App\Http\Controllers\AdminController@NotAllowed')->name('NotAllowed');
+Route::get('/AdminPanel/ShowAllPosts' , 'App\Http\Controllers\AdminController@ShowAllPosts')->name('ShowAllPosts');
 
 Auth::routes();
 

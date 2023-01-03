@@ -391,7 +391,8 @@
                     border: none !important;
                   }
                
-                  #hoverd2:hover{
+                  #hoverd2:hover
+                  {
                     display:block !important;
                     background-color: #3a3f41 !important;
                     height:200px; 
@@ -573,7 +574,7 @@ footer{
 #formResult{
   position: absolute;
   z-index: 1;
-  right:74%;
+  right:78%;
   bottom: -150%;
 }
 

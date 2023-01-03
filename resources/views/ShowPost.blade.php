@@ -94,7 +94,7 @@
                         <h4>قد يهمك ايضا___</h4>
                         <ul>
                             @foreach($PostsOfIntrests as $postOfIntrests)
-                            <li id="list"><a href="{{route('ShowPost' , [$post->id, $categoryId->id] )}}">{{$postOfIntrests->title}}</a></li>
+                            <li id="list"><a href="{{route('ShowPost' , [$postOfIntrests->id, $categoryId->id] )}}">{{$postOfIntrests->title}}</a></li>
                             @endforeach
                         </ul>
                     </div>

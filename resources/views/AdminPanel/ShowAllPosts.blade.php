@@ -16,38 +16,38 @@
 @if(session()->has('statusChange'))
 <div class="container" style="position: relative " id="sus">
 
-    <p style="background-color: rgb(0, 128, 26); font-size:20px; color:white" >{{session()->get('statusChange')}}</p>
+    <p style="background-color: rgb(0, 68, 128); font-size:20px; color:white" >{{session()->get('statusChange')}}</p>
 
 </div>
 
 @endif
-<div class="rounded text-white " style=" background-color:#3a3f41; margin-top : 60px">
-    <div class="d-flex justify-content-between p-3">
+<h1 class=" text-white h2 p-3" style="background-color:#3a3f41;  margin-top : 60px "> <svg xmlns="http://www.w3.org/2000/svg"  class="text-white mx-2"  width="36" height="36" class="mx-3" fill="currentColor" class="bi bi-bookmarks-fill" viewBox="0 0 16 16">
+    <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z"/>
+    <path d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1H4.268z"/>
+  </svg>منشورات كل الاقسام</h1>
+  <div class="container  mt-4">
 
-        <h3 class=" text-white my-2">
-            منشورات قسم <b>{{$category->name}}</b> 
-        </h3>  <div class="d-flex justify-content-center" >
-            <a class="btn btn-success p-2" style="height:45px ; "  href="{{route('ShowCreatePostCategory' , $category->id)}}">
-                <svg  xmlns="http://www.w3.org/2000/svg" width="27" height="27"
-                fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-            </svg></a>
-        </div>
-        
-    </div>
-    
-            
-    </div>
-
- @if($posts->count() > 0)
- <div class=" mt-4 ">
+@if($posts->count() > 0)
+<div class=" mt-4 ">
     
     <div class="row d-flex justify-content-around" >
+
+
     @foreach($posts as $post)
+    <div  class="col-2 " style="width: 18rem; position:relative ; overflow:hidden; padding:0px">
+    @foreach($categories as $category)
+    @if($post->category_id == $category->id)
+       <div class="text-center" style="position: absolute;  top:0%; left:0%;background-color:#3a3f41; ;width:150px; color:white; font-size:20px">
+        <a href="{{route('ShowCategory' , $category->id)}}">
+            {{$category->name}}
+        </a>
+       </div>
+    @endif
+    @endforeach
+   
     <div id="vid" class="col-2 p-0 m-2 border" style="width: 18rem;">
         @if(!$post->image)
-            <img src="https://picsum.photos/300/150" class="card-img-top" alt="">
+            <img src="https://picsum.photos/300/150" class="card-img-top"  alt="">
         @else
         <img src="{{url('/Images' , $post->image)}}" class="card-img-top" style="height:150px" alt="no image">
         @endif 
@@ -86,34 +86,47 @@
         <hr>
         </div>
       
-    </div>
+    </div>  </div>  
     @endforeach
 </div>
 </div>
-@else
-<div class="container text-center">
-    <h1 class="mt-5 text-muted">لا توجد منشورات في هذا القسم</h1>
-</div>
 @endif
 
+ 
+</div>
+<div class="pagination d-flex justify-content-center" >
+    {{$posts->links()}}
+</div>
 
 
 
 
-
-<script>
-
-let sus = document.getElementById('sus');
-console.log(sus);
-
-    
-</script>
 
 
 
 
 <style>
-    #hoverOnBtns .text-primary{
+       .pagination .page-link{
+        color:black !important;
+        border-radius: 20% !important;
+        font-size: 20px !important;
+    }
+    #sus{
+        animation: susMove 0.5s ;
+        
+    }
+       .pagination .page-item:disabled{
+        font-size: 20px !important;
+        background-color: red !important;
+    }
+    @keyframes susMove{
+        0%{
+            transform: translateX(2000px)
+        }
+        100%{
+            transform: translateX(0px);
+        }
+    }    #hoverOnBtns .text-primary{
   color: black !important;
   background-color:#f0f0f0;
 transition: all 0.4s;
@@ -159,6 +172,7 @@ transition: all 0.4s;
             transform: translateX(0px);
         }
     }
+
 
 </style>
 
