@@ -19,7 +19,7 @@ class MainCategoryFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'parent_id' => $this->faker->numberBetween(1,20),
-            'isAllowed' => $this->faker->boolean(11),
+            'sort_category' => $this->faker->numberBetween(1,20),
         ];
     }
 }

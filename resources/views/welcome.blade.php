@@ -62,8 +62,8 @@
 
 
           <div>
-            <p    class="hide"  style="margin: 0px ; font-weight:600; ; color:rgb(165, 165, 165)">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-week" viewBox="0 0 16 16">
+            <p  class="hide"  style="margin: 0px ; font-weight:600; ; color:rgb(165, 165, 165)">
+              <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-week" viewBox="0 0 16 16">
                 <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
                 <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
               </svg> الاثنين - 07 رجب 1443 ● 27 شباط 2022 
@@ -191,7 +191,7 @@
                   </form>
                 
                   <a  class="nav-link" style="padding-left: 10px;" href="{{route('home')}}" aria-current="page">الرئيسية</a>
-                @foreach($categories as $navCat)  
+                @foreach($sortCategories as $navCat)  
                   @if($navCat->parent_id == 0 && $navCat->isAllowed == 1)
                     <li class="nav-item dropdown"  style="list-style:unset ; padding-left: 10px; " role="button"   aria-expanded="false">
                       <a id="onHov" class="nav-link dropdown-toggle" style=" margin-right:2px; " href="{{route('category' , $navCat->id)}}" role="button" aria-expanded="false">
@@ -201,17 +201,58 @@
                   @else
 
                   @endif 
-
+            
                       <ul id="hoverd" class="dropdown-menu dropdown-menu-light">
                         @foreach($categories as $subCat)
                         @if($navCat->id == $subCat->parent_id)
-                        <a  class="dropdown-item" style="color:white" href="{{route('category' , $subCat->id)}}" type="button"> {{$subCat->name}}</a>
-                        @endif
-                        @endforeach 
+                        <a id="onHov3{{$subCat->id}}" class=" dropdown-item "  style="color:white" href="{{route('category' , $subCat->id)}}" type="button"> {{$subCat->name}}
+                        </a>
+                      </a>
+                      {{-- @foreach($categories as $subSubCat)
+                      @if($subSubCat->parent_id == $subCat->id)
+                      <a id="hoverd3{{$subCat->id}}" class=""  style="color:white" href="{{route('category' , $subSubCat->id)}}" type="button"> 
+                        {{$subSubCat->name}}</a>
+                        <style>
+                          #onHov3{{$subCat->id}}:hover ~ #hoverd3{{$subCat->id}}{
+                         display: flex !important;          
+                         transform: translateX(70px, 40px ) !important;
+                         background-color: #71747a !important;
+                         border: none !important;
+                       }
+                       #onHov3{{$subCat->id}}{
+                         position: relative;
+                                                 
+                         display: flex !important;
+                       }
+                       #hoverd3{{$subCat->id}}{
+                         transform: translate(60px,30px) !important;
+                          display: none;
+                         width:auto;
+                         padding:5px;
+                     
+                         border-radius: 5%;
+                         background-color: #3a3f41 !important; 
+                       }
+                       #hoverd3{{$subCat->id}}:hover{
+                         
+                         display:flex !important;
+                         transform: translateX(70px, 40px ) !important;                    
+                         border-radius: 5%;
+                         background-color: #3a3f41 !important; 
+                       }
+     
+     
+                           </style>
+                      @endif
+                      @endforeach --}}
+                      
+                      @endif
+                      @endforeach 
                       </ul>
                     </li> 
+                   
                     @endforeach 
-
+                 
 
                     <li class="nav-item dropend my-2 "  style="list-style:unset ; " role="button"   aria-expanded="false">
                       <a  id="onHov2" class="nav-link dropdown-toggle" style=" margin-right:2px; " href="{{route('category' , $navCat->id)}}" role="button" aria-expanded="false">
@@ -219,13 +260,35 @@
                           الاقسام الاخرى                          
                           @foreach($categories as $subCat)
                           @if($subCat->isAllowed != true && $subCat->parent_id == 0)
-                          <a  class="dropdown-item" style="color:white" href="{{route('category' , $subCat->id)}}" type="button"> {{$subCat->name}}</a>
-                          @endif
-                          @endforeach 
+                          
+                          <a  class="dropdown-item" style="color:white" href="{{route('category' , $subCat->id)}}" type="button"> 
+                            {{$subCat->name}}
+                          </a>
+                          
+                            @endif
+                            @endforeach 
                         </ul>
                       </a>
                       </li>
 
+                      <style>
+                        #subcat:focus ~ #subsubcat{ 
+                          background-color: red !important;
+                          display: flex;
+
+                        }
+                        #subcat{
+                          position: relative
+                        }
+                        #subsubcat{
+                          display: none;
+                          position: absolute !important;
+                          top:50;
+                          left:100;
+                          right:100;
+                        }
+
+                      </style>
                  
                     
              
@@ -243,7 +306,7 @@
                  @endforeach 
                   </ul>
                 </li> --}}
-
+           
                 <script>
                   var nav = document.getElementById('nav')
                   var getColors = document.getElementsByClassName('color');
@@ -380,6 +443,12 @@
                     background-color: #71747a !important;
                     border: none !important;
                   }
+              
+
+
+
+
+
 
 
                   #onHov2:hover ~ #hoverd2{
@@ -426,6 +495,26 @@
                   }
               
                 
+                  @media screen and (max-width:1500px)
+                  {
+                    #hoverd:hover{
+                    display:block !important;
+                    transform: translateX(0%) !important;
+                    }
+                    #onHov2:hover ~ #hoverd2{
+                    display: block !important;
+                    transform: translateX(0%) !important;
+                    }
+                    #onHov:hover ~ #hoverd{
+                    display: block !important;
+                    transform: translateX(0%) !important;
+                    background-color: #71747a !important;
+                    border: none !important;
+                  }
+                  
+           
+                  }
+                  
                
                   @media screen and (max-width:980px)
                   {
@@ -659,7 +748,6 @@ footer{
     }
   
     #nav1  svg {
-      
         color:white;
         margin-top: 15px
     }

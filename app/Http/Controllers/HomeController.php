@@ -37,51 +37,55 @@ class HomeController extends Controller
         $view = new PageViews();
         $view->save();
         $categories = MainCategory::all();
+        $sortCategories = MainCategory::orderBy('sort_category' , 'DESC')->get();
         $post1  = posts::where('category_id' , 42)->count() ;
         $postSlider = [];
         $sliderCounter = 42;
         for($i = 0 ; $i < 4 ; $i++)
         {
-            $postSlider[$i] = posts::where('category_id' , $sliderCounter++)->take(3)->get();
+            $postSlider[$i] = posts::where('category_id' , $sliderCounter++)->orderBy('created_at' , 'DESC')->take(3)->get();
         }      
         $postSlider[4] = posts::where('category_id' , 63)->take(3)->get();
-        $post3 = posts::where('category_id' , 24)->take(1)->get();
-        $post4 = posts::where('category_id' , 24)->take(2)->get();
-        $post5 = posts::where('category_id' , 2)->take(4)->get();
-        $post6 = posts::where('category_id' , 6)->take(3)->get();
-        $postCount2 = MainCategory::where('parent_id' , 7)->get();
+
+        $post3 = posts::where('category_id' , 29)->orderBy('created_at' , 'DESC')->take(3)->get();
+        $post4 = posts::where('category_id' , 30)->orderBy('created_at' , 'DESC')->take(3)->get();
+
+        $post30 = posts::where('category_id' , 30)->orderBy('created_at' , 'DESC')->take(3)->get();
+        $post5 = posts::where('category_id' , 2)->orderBy('created_at' , 'DESC')->take(4)->get();
+        $post6 = posts::where('category_id' , 6)->orderBy('created_at' , 'DESC')->take(3)->get();
+        $postCount2 = MainCategory::where('parent_id' , 7)->orderBy('created_at' , 'DESC')->get();
         $postCount3 = posts::where('category_id' , 0)->count();
         $post8 = [];
-        $post7 = MainCategory::where('parent_id' , 7)->take(3)->get();
+        $post7 = MainCategory::where('parent_id' , 7)->orderBy('created_at' , 'DESC')->take(3)->get();
         $id = 54;
         for($i = 0 ; $i < $post7->count() ; $i++)
         {
-            $post8[$i] = posts::where('category_id' , $id++)->take(1)->get();
+            $post8[$i] = posts::where('category_id' , $id++)->orderBy('created_at' , 'DESC')->take(1)->get();
         }
-        $category1 = MainCategory::where('parent_id' , 3)->take(3)->get();
-        $category2 = MainCategory::where('parent_id' , 3)->take(3)->get();
-        $post9 = posts::where('category_id' , 8)->take(4)->get();
+        $category1 = MainCategory::where('parent_id' , 3)->orderBy('created_at' , 'DESC')->take(3)->get();
+        $category2 = MainCategory::where('parent_id' , 3)->orderBy('created_at' , 'DESC')->take(3)->get();
+        $post9 = posts::where('category_id' , 8)->orderBy('created_at' , 'DESC')->take(4)->get();
         $category3 = MainCategory::where('parent_id' , 5)->take(4)->get();
         $count = 0;
         foreach($category3 as $cat)
         {
-        $post12[$count] = posts::where('category_id' , $cat->id)->take(2)->get();
+        $post12[$count] = posts::where('category_id' , $cat->id)->orderBy('created_at' , 'DESC')->take(2)->get();
         $count++;            
         }
-        $post13 = posts::where('category_id' , 61)->take(5)->get();
-        $post14 = posts::where('category_id' , 9)->take(6)->get();
+        $post13 = posts::where('category_id' , 61)->orderBy('created_at' , 'DESC')->take(5)->get();
+        $post14 = posts::where('category_id' , 9)->orderBy('created_at' , 'DESC')->take(6)->get();
         $category4 = MainCategory::where('parent_id' , 20)->take(4)->get();
-        $post15 = posts::where('category_id' , 10)->take(3)->get();
-        $post16 = posts::where('category_id' , 27)->take(3)->get();
-        $post17 = posts::where('category_id' , 27)->take(3)->get();
-        $post18 = posts::where('category_id' , 27)->take(3)->get();
-        $post19 = posts::where('category_id' , 13)->take(3)->get();
-        $post20 = posts::where('category_id' , 13)->take(3)->get();
-        $post21 = posts::where('category_id' , 12)->take(2)->get();
-        $post22 = posts::where('category_id' ,58)->take(4)->get();
-        $post23 = posts::where('category_id' ,59)->take(4)->get();
-        $post24 = posts::where('category_id' ,60)->take(4)->get();
-        $post25 = posts::where('category_id' , 14)->take(4)->get();
+        $post15 = posts::where('category_id' , 10)->orderBy('created_at' , 'DESC')->take(3)->get();
+        $post16 = posts::where('category_id' , 27)->orderBy('created_at' , 'DESC')->take(3)->get();
+        $post17 = posts::where('category_id' , 27)->orderBy('created_at' , 'DESC')->take(3)->get();
+        $post18 = posts::where('category_id' , 27)->orderBy('created_at' , 'DESC')->take(3)->get();
+        $post19 = posts::where('category_id' , 13)->orderBy('created_at' , 'DESC')->take(3)->get();
+        $post20 = posts::where('category_id' , 13)->orderBy('created_at' , 'DESC')->take(3)->get();
+        $post21 = posts::where('category_id' , 12)->orderBy('created_at' , 'DESC')->take(2)->get();
+        $post22 = posts::where('category_id' ,58)->orderBy('created_at' , 'DESC')->take(4)->get();
+        $post23 = posts::where('category_id' ,59)->orderBy('created_at' , 'DESC')->take(4)->get();
+        $post24 = posts::where('category_id' ,60)->orderBy('created_at' , 'DESC')->take(4)->get();
+        $post25 = posts::where('category_id' , 14)->orderBy('created_at' , 'DESC')->take(4)->get();
         $post26 = [];
         $post26Counter = 15; 
         for($i = 0 ; $i < 3 ; $i++)
@@ -104,12 +108,13 @@ class HomeController extends Controller
 
         $segel = Segel::findOrFail(1);
         
-        return view('main' , ['categories' => $categories , 'posts' => $posts , 'post1' => $post1 ,'postSlider' => $postSlider ,'post3' => $post3 , 'post4' => $post4 , 'post5' => $post5  , 'post6' =>$post6  , 'post7' => $post7 , 'post8' => $post8 , 'postCount2' =>$postCount2 , 'postCount3' => $postCount3 , 'post9' => $post9 , 'category3' => $category3  ,  'post12' => $post12 , 'category1' => $category1 , 'category2' => $category2 , 'post13' => $post13 , 'post14' => $post14 , 'category4' => $category4 , 'post15' => $post15 , 'post16' => $post16 , 'post17' => $post17 , 'post18' => $post18 , 'post19' => $post19  , 'post20' => $post20 , 'post21' => $post21 , 'post22' => $post22 , 'post23' => $post23 , 'post24' => $post24 , 'post25' => $post25 , 'post26' => $post26  , 'post27' => $post27 , 'segel' => $segel, 'post28' => $post28] );    
+        return view('main' , ['categories' => $categories , 'posts' => $posts , 'post1' => $post1 ,'postSlider' => $postSlider ,'post3' => $post3 , 'post4' => $post4 , 'post5' => $post5  , 'post6' =>$post6  , 'post7' => $post7 , 'post8' => $post8 , 'postCount2' =>$postCount2 , 'postCount3' => $postCount3 , 'post9' => $post9 , 'category3' => $category3  ,  'post12' => $post12 , 'category1' => $category1 , 'category2' => $category2 , 'post13' => $post13 , 'post14' => $post14 , 'category4' => $category4 , 'post15' => $post15 , 'post16' => $post16 , 'post17' => $post17 , 'post18' => $post18 , 'post19' => $post19  , 'post20' => $post20 , 'post21' => $post21 , 'post22' => $post22 , 'post23' => $post23 , 'post24' => $post24 , 'post25' => $post25 , 'post26' => $post26  , 'post27' => $post27 , 'segel' => $segel, 'post28' => $post28 , 'post30' => $post30  , 'sortCategories' => $sortCategories] );    
     }
     public function Categories($id)
     {
         $categoryId = MainCategory::findOrFail($id);
         $categories = MainCategory::all();
+        $sortCategories = MainCategory::orderBy('sort_category' , 'DESC')->get();
         $categoryPost =  MainCategory::where('parent_id' , $categoryId->id)->get();
         $PostCount = posts::where('category_id' , $categoryId->id)->get();
         $posts = posts::where('category_id' , $id)->paginate(5);
@@ -141,26 +146,28 @@ class HomeController extends Controller
 
         $segel = Segel::findOrFail(1);
         
-        return  view('category' , ['sidePageCategory' => $sidePageCategory,'SidePosts' => $SidePosts, 'categoryPost' => $categoryPost, 'PostCount' => $PostCount ,'segel' => $segel, 'categoryId' => $categoryId , 'categories' =>  $categories, 'posts' =>$posts, 'sidePageCategory' => $sidePageCategory  , 'categoriesSelected' => $categoriesSelected]);
+        return  view('category' , ['sidePageCategory' => $sidePageCategory,'SidePosts' => $SidePosts, 'categoryPost' => $categoryPost, 'PostCount' => $PostCount ,'segel' => $segel, 'categoryId' => $categoryId , 'categories' =>  $categories, 'posts' =>$posts, 'sidePageCategory' => $sidePageCategory  , 'categoriesSelected' => $categoriesSelected ,  'sortCategories' => $sortCategories]);
 
     }
     public function SearchEngine(Request $request)
     {    
+        $sortCategories = MainCategory::orderBy('sort_category' , 'DESC')->get();
         $search = $request->Input('SearchValue');
         $segel = Segel::findOrFail(1);
         $data = posts::query()->where('title', 'LIKE' , "%{$search}%")->get();
 
         $categories = MainCategory::all();
 
-        return view('SearchResult', ['segel' => $segel  , 'data' => $data , 'categories' => $categories]);
+        return view('SearchResult', ['segel' => $segel  , 'data' => $data , 'categories' => $categories, 'sortCategories' => $sortCategories]);
     }
 
     public function ContactUs()
     {
         $categories = MainCategory::all();
+        $sortCategories = MainCategory::orderBy('sort_category' , 'DESC')->get();
         $posts = posts::all();
         $segel = Segel::findOrFail(1);
-        return view('ContactUs',  [ 'segel' => $segel, 'categories' =>  $categories, 'posts' =>$posts]);
+        return view('ContactUs',  [ 'segel' => $segel, 'categories' =>  $categories, 'posts' =>$posts , 'sortCategories' => $sortCategories]);
     }
     public function SendContactUs(Request $request)
     {
@@ -177,6 +184,7 @@ class HomeController extends Controller
     public function Images()
     {
         $categories = MainCategory::all();
+        $sortCategories = MainCategory::orderBy('sort_category' , 'DESC')->get();
 
         
             $posts = posts::orderBy('views' , 'ASC')->get();
@@ -186,12 +194,13 @@ class HomeController extends Controller
          
             $segel = Segel::findOrFail(1);
          
-        return  view('images' , ['segel' => $segel, 'categories' => $categories , 'posts' =>  $posts , 'sortByDownloads' => $sortByDownloads , 'sortByViews' => $sortByViews ]);
+        return  view('images' , ['segel' => $segel, 'categories' => $categories , 'posts' =>  $posts , 'sortByDownloads' => $sortByDownloads , 'sortByViews' => $sortByViews  , 'sortCategories' => $sortCategories]);
 
     }
     public function SortByViews($sortByViews)
     {
         $categories = MainCategory::all();
+        $sortCategories = MainCategory::orderBy('sort_category' , 'DESC')->get();
         $segel = Segel::findOrFail(1);
         if($sortByViews == 0)
         {
@@ -201,24 +210,25 @@ class HomeController extends Controller
         if($sortByViews == 1 )
         {
             $posts = posts::orderBy('views' , 'DESC')->get();
-            return view('images' , ['segel' => $segel, 'categories' => $categories , 'posts' => $posts ,  'sortByViews' => $sortByViews ,'sortByDownloads' => 0])->with(["status" => "تم الترتيب تنازليا"] );
+            return view('images' , ['segel' => $segel, 'categories' => $categories , 'posts' => $posts ,  'sortByViews' => $sortByViews ,'sortByDownloads' => 0 , 'sortCategories' => $sortCategories])->with(["status" => "تم الترتيب تنازليا"] );
         }
     }
     public function SortByDownloads($sortByDownloads)
     {
         $categories = MainCategory::all();
+        $sortCategories = MainCategory::orderBy('sort_category' , 'DESC')->get();
         $segel = Segel::findOrFail(1);
 
         if($sortByDownloads == 0)
         {
             $posts = posts::orderBy('downloads' , 'ASC')->get();
           
-            return view('images' , ['segel' => $segel, 'categories' => $categories , 'posts' => $posts,'sortByViews' => 0,'sortByDownloads' =>$sortByDownloads])->with(["status" => "تم الترتيب تصاعديا"] );
+            return view('images' , ['segel' => $segel, 'categories' => $categories , 'posts' => $posts,'sortByViews' => 0,'sortByDownloads' =>$sortByDownloads, 'sortCategories' =>$sortCategories])->with(["status" => "تم الترتيب تصاعديا"] );
         }
         if($sortByDownloads == 1 )
         {
             $posts = posts::orderBy('downloads' , 'DESC')->get();
-            return view('images' , ['segel' => $segel, 'categories' => $categories , 'posts' => $posts,'sortByViews' => 0 , 'sortByDownloads' =>$sortByDownloads])->with(["status" => "تم الترتيب تنازليا"] );
+            return view('images' , ['segel' => $segel, 'categories' => $categories , 'posts' => $posts,'sortByViews' => 0 , 'sortByDownloads' =>$sortByDownloads , 'sortCategories' => $sortCategories])->with(["status" => "تم الترتيب تنازليا"] );
         }
     }
     public function ImagesDownloads($id)
@@ -234,21 +244,25 @@ class HomeController extends Controller
     public function WhoAreWe()
     {
         $categories = MainCategory::all();        
+        $sortCategories = MainCategory::orderBy('sort_category' , 'DESC')->get();
        $data = WhoAreWe::findOrFail(1);
        $segel = Segel::findOrFail(1);
-        return view('WhoAreWe' , [ 'segel' => $segel ,  'categories' =>  $categories , 'data' => $data]);
+        return view('WhoAreWe' , [ 'segel' => $segel ,  'categories' =>  $categories , 'data' => $data , 'sortCategories' => $sortCategories]);
     }
     public function Videos()
     {
         $video = posts::where('category_id' , 61)->get();
         $categories = MainCategory::all();
+        $sortCategories = MainCategory::orderBy('sort_category' , 'DESC')->get();
         $segel = Segel::findOrFail(1);
-        return view('Videos' , [ 'segel' => $segel, 'posts' => $video , 'categories' => $categories]);
+        return view('Videos' , [ 'segel' => $segel, 'posts' => $video , 'categories' => $categories , 'sortCategories' => $sortCategories]);
     }
     public function  ShowVideo($id)
     {
 
         $posts = posts::all();
+
+        $sortCategories = MainCategory::orderBy('sort_category' , 'DESC')->get();
 
         $categories = MainCategory::all();
 
@@ -256,7 +270,7 @@ class HomeController extends Controller
 
         $segel = Segel::findOrFail(1);
 
-        return view('ShowVideo' , [ 'segel' => $segel , 'post' => $videoId , 'posts' => $posts , 'categories' => $categories]);
+        return view('ShowVideo' , [ 'segel' => $segel , 'post' => $videoId , 'posts' => $posts , 'categories' => $categories, 'sortCategories' => $sortCategories]);
 
     }
 
@@ -264,6 +278,7 @@ class HomeController extends Controller
     {
         
         $categories = MainCategory::all();
+        $sortCategories = MainCategory::orderBy('sort_category' , 'DESC')->get();
         $postViews = posts::findOrfail($id);
         $postViews->views++;
         $postViews->save();
@@ -311,6 +326,6 @@ class HomeController extends Controller
           
         
         
-        return view('ShowPost' , [  'PostsOfIntrests' => $PostsOfIntrests , 'sidePageCategory' => $sidePageCategory,'SidePosts' => $SidePosts, 'categoryPost' => $categoryPost, 'PostCount' => $PostCount  , 'segel' => $segel , 'post' => $post , 'categories' =>  $categories , 'posts' => $posts , 'categoryId' => $categoryId]);
+        return view('ShowPost' , [  'PostsOfIntrests' => $PostsOfIntrests , 'sidePageCategory' => $sidePageCategory,'SidePosts' => $SidePosts, 'categoryPost' => $categoryPost, 'PostCount' => $PostCount  , 'segel' => $segel , 'post' => $post , 'categories' =>  $categories , 'posts' => $posts , 'categoryId' => $categoryId , 'sortCategories' => $sortCategories]);
     }
 }

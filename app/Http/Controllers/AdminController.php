@@ -142,8 +142,8 @@ class AdminController extends Controller
     }
     public function ShowAllCategories()
     {
-        $categories = MainCategory::where('parent_id' , 0)->paginate(12);
-        $SubCategories = MainCategory::all();            
+        $categories = MainCategory::orderBy( 'sort_category' , 'DESC')->where('parent_id' , 0)->paginate(12);
+       $SubCategories = MainCategory::all();            
         return view('AdminPanel.ShowAllCategories' , ['categories' =>$categories  , 'SubCategories' => $SubCategories] );
     }
     public function AboutUs(Request $request)
@@ -346,6 +346,7 @@ class AdminController extends Controller
         
         $data->name = $request->Input('name');
          $data->parent_id= $request->Input('parent_id');
+         $data->sort_category= $request->Input('sort_category');
 
         $data->save();
 

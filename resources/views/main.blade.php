@@ -92,10 +92,10 @@
           @foreach($postSlider[0] as $post)
           <a href="{{route('ShowPost' , [$post->id , $post->category_id])}}" id="culture"  style="border: none" class="card">
             @if($post->image)
-            <img  style="border-radius: 10px; width:22rem; height:200px" class="img-fluid" src="{{url('/Images' , $post->image)}}">
+            <img  style="border-radius: 10px; width:22rem;" id="changeHeight" class="img-fluid" src="{{url('/Images' , $post->image)}}">
             @endif
             @if(!$post->image)
-            <img src="/ICONS/makka.jpg"  style="border-radius: 10px; width:22rem; height:200px" class="img-fluid"  alt="">
+            <img src="/ICONS/makka.jpg"  style="border-radius: 10px; width:22rem;" id="changeHeight" class="img-fluid"  alt="">
             @endif
             <div class="card-body">
               <div class="card-text" >{{$post->title}}</div>
@@ -108,10 +108,10 @@
           @foreach($postSlider[$i] as $post)
           <a href="{{route('ShowPost' , [$post->id , $post->category_id])}}" id="culture"  style="border: none" class="card">
             @if($post->image)
-            <img style="border-radius: 10px; width:22rem; height:200px" class="img-fluid" src="{{url('/Images' , $post->image)}}">
+            <img style="border-radius: 10px; width:22rem;" id="changeHeight" class="img-fluid" src="{{url('/Images' , $post->image)}}">
             @endif
             @if(!$post->image)
-            <img src="/ICONS/makka.jpg"  style="border-radius: 10px; width:22rem; height:200px" class="img-fluid"  alt="">
+            <img src="/ICONS/makka.jpg"  style="border-radius: 10px; width:22rem;" id="changeHeight" class="img-fluid"  alt="">
             @endif
             <div class="card-body">
               <div class="card-text" >{{$post->title}}</div>
@@ -123,7 +123,7 @@
           @if($i == 5)
           <a href="{{route('ShowPost' , [$post->id , $post->category_id])}}" id="culture"  style="border: none" class="card">
             @if($post->image)
-            <img style="border-radius: 10px; width:22rem; height:200px" class="img-fluid" src="{{url('/Images' , $post->image)}}">
+            <img style="border-radius: 10px; width:22rem;" id="changeHeight" class="img-fluid" src="{{url('/Images' , $post->image)}}">
             @endif
             @if(!$post->image)
             <img src="/ICONS/makka.jpg" style="border-radius: 10px; max-width:100%; "  alt="">
@@ -160,6 +160,11 @@
     </button>
   </div>
   <style>
+
+
+
+
+
     #inner{
       width:unset !important;
       position: unset !important;
@@ -209,10 +214,12 @@
      
             <div class="container "  style="position: relative;">
              
-              <div class="row" >
-                <h4  id="divCon2" class="my-4">لماذا الدين</h4>
-                  <div class="col-7 pt-5">
+              <h5  id="divCon2" onclick="clicked(1)" class="my-4">لماذا الدين ؟</h4>
+              <h4  id="divCon3" onclick="clicked(2)" class="my-4">لماذا الدين الاسلامي ؟</h4>
+              <div id="card1" class="row" >
+                <div  class="col-7 pt-5">
                     @foreach($post3 as $post)
+                    @if($loop->first)
                     <a id="card" href="{{route('ShowPost' , [$post->id , $post->category_id])}}" class="" style="border:unset">
                       @if($post->image)
                       <img style="border-radius: 5px; max-width:350px; height:150px"  src="{{url('/Images' , $post->image)}}" class="card-img-top" alt="https://modo3.com/thumbs/fit630x300/126802/1641363367/%D9%85%D8%A7_%D9%87%D9%8A_%D8%B9%D9%84%D8%A7%D9%85%D8%A7%D8%AA_%D8%BA%D8%B6%D8%A8_%D8%A7%D9%84%D9%84%D9%87_%D8%B9%D9%84%D9%89_%D8%A7%D9%84%D8%A5%D9%86%D8%B3%D8%A7%D9%86.jpg">
@@ -230,10 +237,12 @@
                       </div>
            
                     </a>
+                    @endif
                     @endforeach
                   </div>
                   <div class="col-5 pt-4 " > 
-                    @foreach($post4 as $post)
+                    @foreach($post3 as $post)
+                    @if(!$loop->first)
                     <a  id="culture" href="{{route('ShowPost' , [$post->id , $post->category_id])}}" class="" style="border:unset">
                       @if($post->image)
                       <img  style="border-radius: 5px; max-width:100% ; height:80px; "  src="{{url('/Images' , $post->image)}}" class="card-img-top" alt="https://modo3.com/thumbs/fit630x300/126802/1641363367/%D9%85%D8%A7_%D9%87%D9%8A_%D8%B9%D9%84%D8%A7%D9%85%D8%A7%D8%AA_%D8%BA%D8%B6%D8%A8_%D8%A7%D9%84%D9%84%D9%87_%D8%B9%D9%84%D9%89_%D8%A7%D9%84%D8%A5%D9%86%D8%B3%D8%A7%D9%86.jpg">
@@ -242,12 +251,66 @@
                       <img src="/ICONS/makka.jpg" style="border-radius: 10px; max-width:70%; margin-right:30px "  alt="">
                       @endif
                       <div class="card-body">
-                        <p class="card-title text-center m-0"> والواحدية والتوحيد اولي</p>
+                        <p class="card-title text-center m-0">{{$post->title}}</p>
                       </div>
                     </a>
+                    @endif
                     @endforeach
-                    <div class="bg-dark text-center p-1" style="color:white; ; font-size:14px; ">
+                    <div class="bg-dark mt-3 text-center p-1 " style="color:white; ; font-size:14px; width:140px; margin:auto ;font-weight:500  ">
+                      <a class="text-white " href="{{route('category' , $post->category_id)}}">
                         المزيد
+                      </a>
+                    </div>
+
+                  </div>
+                  
+
+           
+              </div>
+              <div id="card2" class="row" >
+                <div  class="col-7 pt-5">
+                    @foreach($post4 as $post)
+                    @if($loop->first)
+                    <a id="card" href="{{route('ShowPost' , [$post->id , $post->category_id])}}"  style="border:unset">
+                      @if($post->image)
+                      <img style="border-radius: 5px; max-width:350px; height:150px"  src="{{url('/Images' , $post->image)}}" class="card-img-top" alt="https://modo3.com/thumbs/fit630x300/126802/1641363367/%D9%85%D8%A7_%D9%87%D9%8A_%D8%B9%D9%84%D8%A7%D9%85%D8%A7%D8%AA_%D8%BA%D8%B6%D8%A8_%D8%A7%D9%84%D9%84%D9%87_%D8%B9%D9%84%D9%89_%D8%A7%D9%84%D8%A5%D9%86%D8%B3%D8%A7%D9%86.jpg">
+                      @endif
+                      @if(!$post->image)
+                      <img src="/ICONS/makka.jpg" style="border-radius: 10px; max-width:90%; "  alt="">
+                      @endif
+                      <div class="card-body">
+                        <p class="card-text">{{$post->title}}</p>
+                        <small class="text-muted"><svg class="mb-1 mx-1" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-minus" viewBox="0 0 16 16">
+                          <path d="M5.5 9.5A.5.5 0 0 1 6 9h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
+                          <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                        </svg>{{$post->created_at}}</small>
+                        <p class="card-text">{{$post->subject}}</p>
+                      </div>
+           
+                    </a>
+                    @endif
+                    @endforeach
+                  </div>
+                  <div class="col-5 pt-4 " > 
+                    @foreach($post4 as $post)
+                    @if(!$loop->first)
+                    <a  id="culture" href="{{route('ShowPost' , [$post->id , $post->category_id])}}" class="" style="border:unset">
+                      @if($post->image)
+                      <img  style="border-radius: 5px; max-width:100% ; height:80px; "  src="{{url('/Images' , $post->image)}}" class="card-img-top" alt="https://modo3.com/thumbs/fit630x300/126802/1641363367/%D9%85%D8%A7_%D9%87%D9%8A_%D8%B9%D9%84%D8%A7%D9%85%D8%A7%D8%AA_%D8%BA%D8%B6%D8%A8_%D8%A7%D9%84%D9%84%D9%87_%D8%B9%D9%84%D9%89_%D8%A7%D9%84%D8%A5%D9%86%D8%B3%D8%A7%D9%86.jpg">
+                      @endif
+                      @if(!$post->image)
+                      <img src="/ICONS/makka.jpg" style="border-radius: 10px; max-width:70%; margin-right:30px "  alt="">
+                      @endif
+                      <div class="card-body">
+                        <p class="card-title text-center m-0">{{$post->title}}</p>
+                      </div>
+                    </a>
+                    @endif
+                    @endforeach
+                    <div class="bg-dark text-center p-1" style="color:white; ; font-size:14px;  width:140px; margin:auto ;  font-weight:500">
+                      <a class="text-white"  href="{{route('category' , $post->category_id)}}">
+                        المزيد
+                      </a>
                     </div>
 
                   </div>
@@ -257,6 +320,56 @@
               </div>
           </div>
       </div>
+      <style>
+        #card1{
+            transform: translateX(0px);
+        }
+        #card2{
+          display: none;
+            transform: translateX(0px);
+        }
+
+      </style>
+      <script>
+        let divCon2 = document.getElementById("divCon2");
+        let divCon3 = document.getElementById("divCon3");
+        let card1 = document.getElementById("card1");
+        let card2 = document.getElementById("card2");
+
+        card2.style.display = "none";
+
+
+
+        let isClicked = false;
+        divCon2.style.transition = "all 0.5s";
+        card1.style.transition = "all 0.5s";
+        card2.style.transition = "all 0.5s";
+
+        function clicked(num){
+          if(num == 1)
+          {
+            divCon2.style.backgroundColor = "white"
+            divCon2.style.color = "black";
+            divCon3.style.color = "white"
+            divCon3.style.backgroundColor = "#464e51"
+            card1.style.display = "flex";
+            card2.style.display = "none";
+
+            
+          }
+          if(num == 2)
+          {
+            divCon2.style.backgroundColor = "#464e51";
+            divCon2.style.color = "white";
+            card1.style.display = "none";
+            card2.style.display = "flex"
+            divCon3.style.backgroundColor = "white";
+            divCon3.style.color = "black";
+          }
+        }
+
+
+      </script>
       <div class="col-lg-7 col-md-12 pb-5">
         <h3 style="text-align: center; font-weight:700">نبي الاسلام</h3>
         <div class="container" id="prophetMohammed" >
@@ -316,14 +429,14 @@
     <div class="row">
 
       <div class="col-lg-8 col-md-12 col-sm-12 gx-5">
-        <h4 style="text-align:start; font-weight:700; padding:10px">ريحانة وليست قهرمانة</h4>
+        <h4 style="text-align:start; font-weight:700; padding:10px " class="my-2">ريحانة وليست قهرمانة</h4>
         <div class="row">
           <div class="card-group pb-5" style="box-shadow: 0px 11px 21px -16px rgba(0,0,0,0.75);
        ">
             @foreach($post6 as $post)
             <a href="{{route('ShowPost' , [$post->id , $post->category_id])}}" id="culture" class="card" style="border: none">
               @if($post->image)
-              <img src="{{url('public/Images' , $post->image)}}" class="card-img-top " style="border-radius: 10px" alt="...">
+              <img  src="{{url('/Images' , $post->image)}}" style="height:170px ; border ;border-radius: 10px" class="card-img-top " alt="...">
               @else
               <img src="https://c0.wallpaperflare.com/preview/346/950/560/canada-vancouver-forest-girls.jpg" class="card-img-top " style="border-radius: 10px" alt="...">              
               @endif
@@ -448,8 +561,7 @@
             </div>
           </div>
         </div>
-        <br>
-        <div class="row">
+        <div class="row mt-3">
           <div id="arts" class="container  p-3" style="border-radius: 20px ; background-color:rgba(0, 0, 0, 0.695)">
             <h4 style="text-align: start; font-size:25px; font-weight:600; color:white">فنون اسلامية</h4>
             <div class="row row-cols-2 bg-light" style="border-radius: 0px 0px 20px 20px; transform:translateY(10px)">
@@ -492,13 +604,15 @@
 
 
 
-      <div class="col-lg-4 col-md-6 col-sm-12 gx-5 " >
-        <h4 style="text-align: center; font-weight:700">الاسلام حياة</h4>
-        <div class="row p-1 " style="background-color: #f4f5f6;">
+      <div class="col-lg-4 col-md-6 col-sm-12 gx-5  " >
+        <h4 style="text-align: center; font-weight:700 " class="my-3">الاسلام حياة</h4>
+        <div class="row p-1 py-3 " style="background-color: #f4f5f6;">
           <?php $i = 0 ?>
           @foreach($category3 as $cat)
+          @if($loop->first)
+          @endif
           
-          <a class="IslamLife" id="IslamLife" href="{{route('category' , $cat->id)}}" >
+          <a  class="IslamLife" id="IslamLife" href="{{route('category' , $cat->id)}}" >
           {{$cat->name}}</a>
           <style>
             #hoverthing{
@@ -507,14 +621,18 @@
             #hoverthing:hover{
               text-decoration: underline;
             }
-          </style>
+            
+
+
+
+  </style>
           @foreach($post12[$i] as $post)
 
           <a href="{{route('ShowPost' , [$post->id , $post->category_id])}}" id="culture"  style="max-width: 420px; background-color:#f4f5f600; border:none; position: relative;">
             <div class="row g-0">
               <div class="col-md-4">
                 @if($post->image)
-                <img  src="{{url('/Images' , $post->image)}}" class="img-fluid "  alt="...">
+                <img  src="{{url('/Images' , $post->image)}}" style="height:70px;width:120px; max-width:100%; " class="img-fluid "  alt="...">
                 @endif
                 @if(!$post->image)
                 <img src="/ICONS/makka.jpg" style="height:70px;width:120px; max-width:100%; "  alt="">
@@ -571,10 +689,10 @@ li::marker{margin: 0px !important;}
       @foreach($post13 as $post)
       @if(!$loop->first)
           <div class="col">
-            <div class="card  mx-0 my-3" style="max-width: 520px; background-color:#f4f5f600;  position: relative;  ">
+            <div class="card  mx-0 my-3" style="max-width: 520px; height:90px; background-color:#f4f5f600;  position: relative;  ">
               <a href="{{route('ShowPost' , [$post->id, $post->category_id])}}" class="row g-0">
                 <div  class="col-md-4"  >
-                  <iframe style="width:120px; height:100px ; padding:10px"   src="https://www.youtube.com/embed/{{$post->VideoUrl}}" title="{{$post->title}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <iframe style="width:120px; height:90px ; padding:10px"   src="https://www.youtube.com/embed/{{$post->VideoUrl}}" title="{{$post->title}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
@@ -748,10 +866,10 @@ li::marker{margin: 0px !important;}
           <div class="row g-0">
             <div class="col-md-4">
               @if($post->image)
-              <img style="border-radius: 5px; max-width:350px; height:50px"  src="{{url('/Images' , $post->image)}}" class="card-img-top" alt="https://modo3.com/thumbs/fit630x300/126802/1641363367/%D9%85%D8%A7_%D9%87%D9%8A_%D8%B9%D9%84%D8%A7%D9%85%D8%A7%D8%AA_%D8%BA%D8%B6%D8%A8_%D8%A7%D9%84%D9%84%D9%87_%D8%B9%D9%84%D9%89_%D8%A7%D9%84%D8%A5%D9%86%D8%B3%D8%A7%D9%86.jpg">
+              <img style="border-radius: 5px; max-width:350px; height:150px"  src="{{url('/Images' , $post->image)}}" class="card-img-top" alt="https://modo3.com/thumbs/fit630x300/126802/1641363367/%D9%85%D8%A7_%D9%87%D9%8A_%D8%B9%D9%84%D8%A7%D9%85%D8%A7%D8%AA_%D8%BA%D8%B6%D8%A8_%D8%A7%D9%84%D9%84%D9%87_%D8%B9%D9%84%D9%89_%D8%A7%D9%84%D8%A5%D9%86%D8%B3%D8%A7%D9%86.jpg">
               @endif
               @if(!$post->image)
-              <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/robert-pattinson-attends-the-go-campaigns-13th-annual-go-news-photo-1594309671.jpg" style="height:150px" class="img-fluid rounded-start" alt="...">
+              <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/robert-pattinson-attends-the-go-campaigns-13th-annual-go-news-photo-1594309671.jpg" style="height:150px; width:150px" class="img-fluid rounded-start" alt="...">
               @endif
             </div>
             <div class="col-md-8">
@@ -1094,14 +1212,16 @@ carousel-indicators .active{
   max-width: 420px;
    background-color:#f4f5f600;
     border:none; 
-    position: relative;
-  
+    position: relative; 
+}
+
+#changeHeight{
+  height:250px;
 }
 
 #adab:hover  #adabDiv{
   transition: all 0.3s;
   padding-right:20px;
-
 }
 
 
@@ -1109,10 +1229,7 @@ carousel-indicators .active{
   background-image: url('/ICONS/0011.png');
 background-repeat: no-repeat;
 background-size: cover;
-
 height:auto;
-
-
 }
 
 
@@ -1135,17 +1252,42 @@ text-decoration: underline;
 }
 #divCon2{
   color: black;
-   padding-block:10px;
+   padding-block:5px;
     background-color:white;
     width:170px;
-    border-block:10px;
-    border-inline: solid rgb(102, 102, 102) 1px ;
+    box-shadow: rgb(143, 143, 143) -1px -1px 0px 0.1px;
+    position: absolute;
+    font-weight: 500;
+    border-radius: 200px 100px 0px 100px;
+    transform: translate(34px,-60px);
+    text-align:center; 
+    font-size:23px;
+    z-index: 1;
+}
+
+#divCon2{
+    cursor: pointer;
+}
+
+#divCon3{
+  color: white;
+  background-color: #464e51;
+   padding-block:5px;
+   font-weight: 500;
+    width:270px;
+    box-shadow: rgb(143, 143, 143) -1px -1px 0px 0.1px;
     position: absolute;
     border-radius: 200px 100px 0px 100px;
-    transform: translate(24px,-59px);
+    transform: translate(-118px,-60px);
     text-align:center; 
-    font-size:25px;
+    font-size:23px;
+    z-index: 0;
 }
+#divCon3:hover{
+  cursor: pointer;
+}
+
+
 
 #gates{
   background-image:url('/ICONS/pic.png');
@@ -1321,6 +1463,11 @@ width: auto;
 
                 @media screen and (max-width:1500px)
                 {
+                  
+    #changeHeight{
+      height:
+
+    }
                   #stuff{
                   max-width: 520px; 
                   background-color:#f4f5f600;
@@ -1351,6 +1498,9 @@ width: auto;
                 } */
                 @media screen and (max-width:700px)
                 {
+                  #changeHeight{
+                    height: 110px;
+                  }
                   #hideInfographic{
                    visibility: hidden; 
                   }

@@ -12,13 +12,14 @@ return new class extends Migration
      * @return void
      */
     public function up()
-    {
+    {       
         Schema::create('main_categories', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->bigInteger('parent_id')->unsigned()->nullable();
             $table->string('name');
             $table->boolean('isAllowed')->default(false);
+            $table->integer('sort_category')->nullable();
         });
     }
 

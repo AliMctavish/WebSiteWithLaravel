@@ -14,13 +14,14 @@
       @csrf  
       @method('PUT')
       
-        <div class="col-md-6">
+        <div class="col-6" >
           <label for="inputEmail4" class="form-label">عنوان القسم</label>
-          <input type="text " class="form-control" placeholder="{{$category->name}}" id="inputEmail4" name="name">
+          <input type="text " class="form-control" placeholder="{{$category->name}}" id="inputEmail4" value="{{$category->name}}" name="name">
         </div>
 
+     
 
-        <div class="col-12">
+        <div class="col-4 mt-4 mx-5">
           <label for="inputAddress2" class="form-label">القسم التابع له</label>
           <select  style="border-radius: 10px; border:solid rgb(29, 68, 114) 2px;" name="parent_id"  id="cars">
             @if($category->parent_id != 0)
@@ -36,6 +37,20 @@
           @endforeach  
           </select>
         </div>
+    
+       <div>
+        hello 
+       </div>
+        <div class="col-4" style="transform: translate(-20px,20px)">
+          <label for="inputAddress2" class="form-label">ترتيب القسم</label>
+          <select  style="border-radius: 10px; border:solid rgb(29, 68, 114) 2px;" name="sort_category"  id="cars">
+            @for($i = 1 ; $i < 12 ; $i++)
+            <option  style="font-size: 30px ; text-align:center; background-color:rgb(255, 255, 255);" value="{{$i}}">{{$i}}</option>
+            @endfor
+
+          </select>
+        </div>
+
     
         <div class="col-12">
           <button type="submit" class="btn btn-success" style=" color:white; font-size:20px; transform:translateY(40px)">تعديل القسم</button>

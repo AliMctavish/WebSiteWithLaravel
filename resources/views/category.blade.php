@@ -16,7 +16,7 @@
               <span><a id="card" href="{{route('home')}}">الاسلام لماذا..؟</a></span>
               <span>>></span>
               @foreach($categories as $cat)
-              @if($cat->parent_id == 0 && $cat->id == $categoryId->parent_id )
+              @if(($cat->parent_id == 0 && $cat->id == $categoryId->parent_id) || $categoryId->parent_id == $cat->id)
               <span><a id="card" href="{{route('category' , $cat->id)}}">{{$cat->name}}</a></span>
               <span>>></span>
               @endif
@@ -44,7 +44,9 @@
                 @endif
                 @endforeach
               @endif
+              
                 <br>
+                
                 <style>
                   #cat a{
                     text-decoration: none;
@@ -57,8 +59,20 @@
                     font-size: 30px;
                   }
                 </style>
-                <br>
-            
+                @if($categoryId->parent_id != 0 &&  $category->parent_id != $categoryId->id )
+                <div class="border container">
+                  <div>الاقسام الفرعية</div>
+                  @foreach($categoryPost as $category)
+                  @if($category->id != $categoryId->id )
+                  
+                  <span style="margin-right:30px"> 
+                   <a  id="card"  href="{{route('category' , $category->id)}}">{{$category->name}}</a> 
+                  </span>
+                  @endif
+                  @endforeach
+                </div>
+               @endif
+            <br><br>
                 @if($PostCount->count())
                   @foreach($posts as $post)
                   @if($post->category_id == $categoryId->id)
@@ -188,7 +202,32 @@
 
 
 </div>
+<div class="pagination d-flex justify-content-center" >
+  {{$posts->links()}}
+</div>
 
+
+
+
+
+
+
+
+<style>
+     .pagination .page-link{
+      color:black !important;
+      border-radius: 20% !important;
+      font-size: 20px !important;
+      margin-inline: 10px;
+  }
+
+    .page-item.active .page-link{
+      color:white !important;
+      margin-inline: 10px;
+    background-color: #464e51 !important;
+
+  }
+</style>
 <script>
 
   var theme = document.getElementsByClassName("theme")
