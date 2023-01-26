@@ -101,10 +101,12 @@
            يجب كتابة القسم التابع له
         </div>
         @enderror 
-        <div  id="input" class="col-md-6">
-          <label for="inputCity" id="inputCity1" class="form-label">رفع صورة</label>
-          <input type="file" placeholder="اختر صورة" name="image" class="form-control" id="inputCity">
+        <label for="inputCity"  class="form-label">رفع صورة</label>
+        <div  id="input" class="col-md-8 d-flex " style="height:  60px">
+          <input type="file" id="pictureUploader"  placeholder="اختر صورة" name="image" class="form-control" id="inputCity">
         </div>
+        @if
+        <img id="imageSrc" style="width: 300px "  class="p-2" alt="">
         <div  hidden id="input2" class="col-md-6">
           <label for="inputCity" id="inputCity1" class="form-label">رفع رابط الفيديو</label>
           <input type="text" placeholder="اختر رابط" name="VideoUrl" class="form-control" id="inputCity">
@@ -123,6 +125,39 @@
 <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 
 <script>
+  var pictureUploader = document.getElementById("pictureUploader")
+  var imageSrc = document.getElementById("imageSrc");
+
+
+  console.log(pictureUploader.value);
+
+
+  pictureUploader.addEventListener('change' , (event) => {
+    const file = event.target.files[0];
+    const fileReader = new FileReader();
+    console.log(pictureUploader.innerHTML)
+    
+    fileReader.addEventListener('load' , (event) => 
+  {
+      imageSrc.src = event.target.result;
+  })
+
+  fileReader.readAsDataURL(file);
+
+
+  })
+
+
+  
+  
+  
+ 
+
+
+
+
+
+
   var value = document.getElementById("test29");
   var val3 = document.getElementById('input2');
   var val4 = document.getElementById('val4');

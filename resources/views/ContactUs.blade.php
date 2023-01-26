@@ -167,6 +167,7 @@
         animation: susMove 0.5s ;
         
     }
+    
 
     @keyframes susMove{
         0%{

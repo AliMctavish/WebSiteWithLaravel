@@ -202,7 +202,7 @@
 
                   @endif 
             
-                      <ul id="hoverd" class="dropdown-menu dropdown-menu-light">
+                      <ul id="hoverd" class="dropdown-menu dropdown-menu-light hoverd">
                         @foreach($categories as $subCat)
                         @if($navCat->id == $subCat->parent_id)
                         <a id="onHov3{{$subCat->id}}" class=" dropdown-item "  style="color:white" href="{{route('category' , $subCat->id)}}" type="button"> {{$subCat->name}}
@@ -386,7 +386,6 @@
             
                     })
                   }
-                 
                   var writeColor = localStorage.getItem("colorTheme");
                   var writeText  = localStorage.getItem("textColor");
                   var writeTextColor =  localStorage.getItem("text");
@@ -398,19 +397,10 @@
                   segel.style.color = trans;
                   segel2.style.color = trans;
                   translator.style.backgroundColor = translate
-        
                   who.style.color = whos
                   who2.style.color = whos
                   console.log(who)
-            
-                  console.log(navBar)
-                  
-            
-               
-            
-                  
-            
-                 
+                  console.log(navBar)        
                     </script>
                 <style>
                       /* width */
@@ -444,12 +434,6 @@
                     border: none !important;
                   }
               
-
-
-
-
-
-
 
                   #onHov2:hover ~ #hoverd2{
                     display: block !important;
@@ -558,21 +542,11 @@
                   } */
                 </style>
              
-                        {{-- <form id="formResult"  class="mt-4" >
-                          
-                           <label onclick="document.getElementById('SearchBtn').disabled = false" id="searchLabel" for="searchBar"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                           </svg></label>
-                          <input placeholder="بحث عام" name="SearchValue" id="searchBar" type="search">
-                          <button disabled id="SearchBtn" type="submit"  class="btn btn-primary">بحث</button>
-                        </form> --}}
-                 
- 
-                  
+          
                
 
                 </ul>
-                <!-- <button class="btn btn-outline-primary mx-1" type="submit">تعديل</button> -->
+
 
             </div>
             
@@ -581,6 +555,55 @@
       </nav>
 
 
+
+      <script>
+        var hoverd = document.getElementsByClassName("hoverd");
+          var nav = document.getElementById("nav")
+
+          for(let i= 0 ; i < hoverd.length ; i++)
+          {
+            hoverd[i].style.backgroundColor = "red"
+            hoverd[i].style.display= "none";
+          }
+
+
+          console.log(nav.offsetWidth)
+
+          console.log(window.innerWidth)
+
+          window.addEventListener('mouseover' , () => {
+
+   
+
+
+          })
+
+
+
+
+
+        
+
+          
+          
+
+          console.log(
+
+            window.innerWidth
+
+          )
+      
+
+
+        console.log(hoverd);
+      </script>
+
+<style>
+body{
+  max-width: 100%;
+}
+
+</style>
     <div class="">
      
     @yield('content')

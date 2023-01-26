@@ -207,20 +207,23 @@
   <br>
   <br>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-5 my-5 col-md-12  " style="border-radius: 16px ;  border: 1px solid rgba(0, 0, 0, 0.245);
+  <div class="container" >
+    <div class="row " >
+      <div class="col-lg-5 my-5 col-md-12 " style="background-color:white; z-index:0 ;border-radius:10px 0px 10px 10px;  border: 1px solid rgba(0, 0, 0, 0.245); 
       border-bottom: none;">
      
             <div class="container "  style="position: relative;">
              
               <h5  id="divCon2" onclick="clicked(1)" class="my-4">لماذا الدين ؟</h4>
               <h4  id="divCon3" onclick="clicked(2)" class="my-4">لماذا الدين الاسلامي ؟</h4>
-              <div id="card1" class="row" >
-                <div  class="col-7 pt-5">
+              <div id="card1" class="row "  >
+                
+                <div  class="col-7 pt-5 ">
+
                     @foreach($post3 as $post)
+
                     @if($loop->first)
-                    <a id="card" href="{{route('ShowPost' , [$post->id , $post->category_id])}}" class="" style="border:unset">
+                    <a id="card" href="{{route('ShowPost' , [$post->id , $post->category_id])}}"  style="border:unset; ">
                       @if($post->image)
                       <img style="border-radius: 5px; max-width:350px; height:150px"  src="{{url('/Images' , $post->image)}}" class="card-img-top" alt="https://modo3.com/thumbs/fit630x300/126802/1641363367/%D9%85%D8%A7_%D9%87%D9%8A_%D8%B9%D9%84%D8%A7%D9%85%D8%A7%D8%AA_%D8%BA%D8%B6%D8%A8_%D8%A7%D9%84%D9%84%D9%87_%D8%B9%D9%84%D9%89_%D8%A7%D9%84%D8%A5%D9%86%D8%B3%D8%A7%D9%86.jpg">
                       @endif
@@ -233,7 +236,7 @@
                           <path d="M5.5 9.5A.5.5 0 0 1 6 9h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
                           <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
                         </svg>{{$post->created_at}}</small>
-                        <p class="card-text">{{$post->subject}}</p>
+                        <p class="card-text">{!! Str::limit($post->subject, 40, '...')  !!}</p>
                       </div>
            
                     </a>
@@ -267,8 +270,10 @@
 
            
               </div>
-              <div id="card2" class="row" >
-                <div  class="col-7 pt-5">
+              <div id="card2" class="row"  >
+                <div class="bg-white p-2" style="transform: translateX(24.5px) ; position:absolute"></div>
+
+                <div  class="col-7 pt-5"   >
                     @foreach($post4 as $post)
                     @if($loop->first)
                     <a id="card" href="{{route('ShowPost' , [$post->id , $post->category_id])}}"  style="border:unset">
@@ -284,7 +289,7 @@
                           <path d="M5.5 9.5A.5.5 0 0 1 6 9h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
                           <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
                         </svg>{{$post->created_at}}</small>
-                        <p class="card-text">{{$post->subject}}</p>
+                        <p class="card-text">{!! Str::limit($post->subject, 40, '...')  !!}</p>
                       </div>
            
                     </a>
@@ -341,30 +346,40 @@
 
 
         let isClicked = false;
-        divCon2.style.transition = "all 0.5s";
-        card1.style.transition = "all 0.5s";
-        card2.style.transition = "all 0.5s";
+        // divCon2.style.transition = "all 0.5s";
+        // card1.style.transition = "all 0.5s";
+        // card2.style.transition = "all 0.5s";
+        
 
+
+    
         function clicked(num){
           if(num == 1)
           {
-            divCon2.style.backgroundColor = "white"
+            // divCon2.style.backgroundColor = "white"
             divCon2.style.color = "black";
             divCon3.style.color = "white"
-            divCon3.style.backgroundColor = "#464e51"
+            // divCon3.style.backgroundColor = "#464e51"
             card1.style.display = "flex";
             card2.style.display = "none";
+            console.log(divCon3.backgroundImage)
 
-            
+            divCon2.style.backgroundImage = "url('./ICONS/selectShape2.png')";
+            divCon2.style.zIndex = "1"
+            divCon3.style.backgroundImage = "url('./ICONS/selectShape.png')";
           }
           if(num == 2)
           {
-            divCon2.style.backgroundColor = "#464e51";
+            // divCon2.style.backgroundColor = "#464e51";
             divCon2.style.color = "white";
             card1.style.display = "none";
             card2.style.display = "flex"
-            divCon3.style.backgroundColor = "white";
+            // divCon3.style.backgroundColor = "white";
+            divCon2.style.zIndex = "-1"
             divCon3.style.color = "black";
+            divCon2.style.backgroundImage = "url('./ICONS/selectShape.png')";
+            divCon3.style.backgroundImage = "url('./ICONS/selectShape2.png')";
+            
           }
         }
 
@@ -1142,6 +1157,7 @@ li::marker{margin: 0px !important;}
   </div>
 
 
+
   <br>
   <br>
   <br>
@@ -1250,19 +1266,35 @@ text-decoration: underline;
     text-align:center; 
     font-size:27px;
 }
+
+#card1{
+  z-index: 1;
+  background-color: white;
+}
+#card2 .col-7{
+  z-index: 0 !important;
+}
+
 #divCon2{
   color: black;
-   padding-block:5px;
-    background-color:white;
-    width:170px;
-    box-shadow: rgb(143, 143, 143) -1px -1px 0px 0.1px;
+   padding:5px;
+     background-image:url("./ICONS/selectShape2.png");
+      background-position-x: -50px; 
+      background-position-y: 1px; 
+      background-repeat: no-repeat;
+    /* background-color:unset; */
+    width:300px;
+    height:50px;
+    /* box-shadow: rgb(143, 143, 143) -1px -1px 0px 0.1px; */
     position: absolute;
     font-weight: 500;
-    border-radius: 200px 100px 0px 100px;
-    transform: translate(34px,-60px);
+    border-radius: 20px 50px 300px 300px;
+    transform: translate(83px,-60px);
+    /* margin-right: -37.5px;
+    margin-top :-38px !important; */
     text-align:center; 
     font-size:23px;
-    z-index: 1;
+    z-index: 0;
 }
 
 #divCon2{
@@ -1271,17 +1303,22 @@ text-decoration: underline;
 
 #divCon3{
   color: white;
-  background-color: #464e51;
    padding-block:5px;
-   font-weight: 500;
-    width:270px;
-    box-shadow: rgb(143, 143, 143) -1px -1px 0px 0.1px;
+   font-weight:400;
+   background-image:url("./ICONS/selectShape.png");
+   background-position-x: -80px; 
+      background-position-y: 0px; 
+      background-size: 350px;
+      background-repeat: no-repeat;
+    width:300px;
+    height:50px;
+    /* box-shadow: rgb(143, 143, 143) -1px -1px 0px 0.1px; */
     position: absolute;
     border-radius: 200px 100px 0px 100px;
-    transform: translate(-118px,-60px);
+    transform: translate(-110px,-61px);
     text-align:center; 
-    font-size:23px;
-    z-index: 0;
+    font-size:20px;
+    z-index: -1;
 }
 #divCon3:hover{
   cursor: pointer;

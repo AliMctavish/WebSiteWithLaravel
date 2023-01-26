@@ -8,11 +8,6 @@
 
 
 <div class="container p-5" >
-
-
-
-        
-         
               <span><a id="card" href="{{route('home')}}">الاسلام لماذا..؟</a></span>
               <span>>></span>
         
@@ -25,9 +20,6 @@
               
               <div class="d-flex ">
                   <div  class="flex-grow-1" style="font-size: 30px ; font-weight:700; ">مكتبة الفيديو</div>
-    
-
-
               </div>
 
               <br>
@@ -56,21 +48,8 @@
                     <div  class="flex-grow-1 text-muted text-center p-5" style="font-size: 30px ; font-weight:500; ">لا توجد منشورات في هذا القسم</div>
                     @endif
                 </div>
-             
-
-
-             
-
-                  
+        
                   </div>
-
-
-
-
-
-
-
-
 
                 <br>
                 <style>
@@ -118,13 +97,7 @@
           #card:hover{
             text-decoration: underline;
           }
-         
         </style>
-        
-        
-        
-
-
 
     </div>
 

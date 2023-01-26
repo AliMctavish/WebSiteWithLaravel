@@ -46,7 +46,7 @@
         </div>
 
     </div>
-    </div>
+
     </nav>
 
 
@@ -117,30 +117,13 @@
         </ul>
 
         <ul class="list-unstyled components">           
-          
-                
-
-                 
-                   
-                
-                 
-                
                   <ul>
                     <li><a class="dropdown-item" href="{{route('ShowCreatePost')}}">اضافة منشور جديد</a></li>
                       <li><a class="dropdown-item" href="{{route('ShowAllPosts')}}">عرض كل المنشورات</a></li>
                       <li><a class="dropdown-item" href="{{route('ShowAllCategories')}}">عرض كل الاقسام</a></li>
                       <li><a class="dropdown-item" href="{{route('ShowCreateCategory')}}">اضافة قسم</a></li>
-                   
-                  </ul>
-
-
-            
-               
-        </ul>
-
-
-   
-      
+                  </ul>      
+        </ul> 
         <ul class="list-unstyled components">           
             <div class="dropdown mx-3" > 
                 <button class="btn" style="color:white; font-size:20px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -156,7 +139,7 @@
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
-                            تسجيل خروج
+                                         تسجيل خروج
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

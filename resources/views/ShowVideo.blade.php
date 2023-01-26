@@ -80,32 +80,10 @@
                         <br>
                         <br>
 
-                
-
                 </div>
-
-
-
-
-                  
-                
+     
             </div>
-          
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+ 
         <div class="col-lg-4 col-md-6  col-sm-12 gx-5" >
                 <h3 style="text-align: center; font-weight:700">الاسلام حياة</h3>
                 <div  class="row p-1 " style="background-color: #f4f5f6;">

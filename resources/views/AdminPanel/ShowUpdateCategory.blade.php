@@ -38,9 +38,7 @@
           </select>
         </div>
     
-       <div>
-        hello 
-       </div>
+      
         <div class="col-4" style="transform: translate(-20px,20px)">
           <label for="inputAddress2" class="form-label">ترتيب القسم</label>
           <select  style="border-radius: 10px; border:solid rgb(29, 68, 114) 2px;" name="sort_category"  id="cars">

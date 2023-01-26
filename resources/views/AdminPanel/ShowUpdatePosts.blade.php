@@ -86,7 +86,7 @@
           </select>
         </div>
         <div id="input" class="form-group border" >
-          <label for="link">الصورة الحالية : {{ $data->image }}</label>
+          <label for="link">الصورة الحالية :</label>
           <img src="{{url('/Images' , $data->image)}}" class="img-fluid" style="width:200px" alt="no image">
           <br>
           <label for="link" class="text-muted"> رفع صورة اخرى</label>
@@ -119,6 +119,13 @@
 
 
 <script>
+
+
+
+
+
+
+
   var value = document.getElementById("test29");
   var val3 = document.getElementById('input2');
   var val4 = document.getElementById('val4');

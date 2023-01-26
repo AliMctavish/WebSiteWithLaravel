@@ -1,21 +1,9 @@
 @extends('welcome')
-
-
-
-
-
 @section('content')
-
-
-
-
   <br>
   <br>
   <br>
-  
-  
   <div class="container">
-    
         <h4 style="background-color:rgb(194, 194, 194) ; padding:10px ; font-size:30px">
           <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -26,52 +14,20 @@
          <div class="d-flex justify-content-center">
           <img src="{{url('/ICONS/logo.png')}}" class="img-fluid" style="max-width:80%;" alt="">
         </div>
-         
          <br>
-       
          <div class="row d-flex justify-content-center ">
-
-          
           <p  style="">
             {!! $data->subject !!}
           </p>
-          
-          
         </div>
         <br>
-        
-        
-       
-
     </div>
-
-
-
-
     <br>
     <br>
-    
     <br>
     <br>
-    
-
-
-
-  
-
-
-
-
-
 </div>
-
-
-
-
-
 <style>
-
-
 .goal{
     background-image: url('../resources/ICON/goals.png');
     z-index: 0;
@@ -79,55 +35,31 @@ position: relative;
 background-attachment: fixed;
 overflow: hidden;
 height:auto;
-
 }
 .goal p {
-    
-
-
-    font-size: 22px;
+ font-size: 22px;
 }
-
-
-
 .goal .container{
 
 height:auto;
-
 }
-
-
-
 .col-3{
 
 padding:10px;
-
 }
-
-
 .first img{
 width:100%;
 height:500px;   
  z-index: -1;
-
 position: absolute;
 transform: translateY(-270px);
-
 }
-
-
-
-
 .goal h1{
-
 text-align: center ;
 margin-top : 94px;
 color:white;
 font-size: 40px;
 }
-
-
-
 #vid a p {
     text-align: center;
 }
@@ -138,21 +70,7 @@ font-size: 40px;
    color: #1D2FA4 !important;
    font-weight: 600;
 }
-
-
-
-
-
-
-
-
 </style>
-
-
-
-
-
-
 @endsection
 
 

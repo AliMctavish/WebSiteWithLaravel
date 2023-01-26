@@ -59,7 +59,7 @@
                     font-size: 30px;
                   }
                 </style>
-                @if($categoryId->parent_id != 0 &&  $category->parent_id != $categoryId->id )
+                {{-- @if($categoryId->parent_id != 0 &&  $category->parent_id != $categoryId->id )
                 <div class="border container">
                   <div>الاقسام الفرعية</div>
                   @foreach($categoryPost as $category)
@@ -71,7 +71,7 @@
                   @endif
                   @endforeach
                 </div>
-               @endif
+               @endif --}}
             <br><br>
                 @if($PostCount->count())
                   @foreach($posts as $post)
